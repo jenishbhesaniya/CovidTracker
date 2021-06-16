@@ -1,0 +1,25 @@
+<mat-card style="background-color: gray;">
+  <div class="row">
+      <div class="col-sm-3">
+        <mat-card><mat-card-title>Total Cases</mat-card-title>
+          <mat-divider [inset]="true"></mat-divider>
+        <mat-card-subtitle>{{ data.total_cases }}</mat-card-subtitle><mat-card-content>Last updated on <br>{{  data.date }}</mat-card-content></mat-card>
+
+      </div>
+      <div class="col-sm-3">
+        <mat-card><mat-card-title>Total Deaths</mat-card-title>
+          <mat-divider [inset]="true"></mat-divider>
+          <mat-card-subtitle>{{ data.total_death }}</mat-card-subtitle><mat-card-content>Last updated on <br>{{  data.date }}</mat-card-content></mat-card>
+
+      </div>
+      <div class="col-sm-3">
+        <mat-card><mat-card-title>Active Case:</mat-card-title>
+          <mat-divider [inset]="true"></mat-divider>
+          <mat-card-subtitle>{{ data.active }}</mat-card-subtitle><mat-card-content>Last updated on <br>{{  data.date }}</mat-card-content></mat-card>
+
+      </div>
+      <div class="col-sm-3">
+        <mat-card><img src="https://www.who.int/images/default-source/health-topics/coronavirus/map.tmb-768v.jpg" class="md-card-image"></mat-card>
+      </div>
+  </div>
+</mat-card>

@@ -1,0 +1,14 @@
+.mat-label{
+  width: 20%;
+
+}
+.mat-lable:active{
+  background-color: red;
+}
+.main-div{
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+

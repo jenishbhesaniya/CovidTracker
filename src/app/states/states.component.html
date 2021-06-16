@@ -1,0 +1,62 @@
+
+<div class="main-div">
+<mat-card layout="row" layout-align="center center">
+  <mat-card-subtitle>Serch Vaccine Centres</mat-card-subtitle>
+  <mat-card-content>
+    <mat-tab-group [color]="'primary'" [backgroundColor]="'primary'"  style="justify-content: space-between;">
+      <mat-tab label="Search by pin">
+        <div class="pin" style="justify-content: space-between;">
+          <mat-form-field>
+          <mat-label>Postal Code</mat-label>
+          <input matInput #postalCode maxlength="6" placeholder="Ex. 941056" >
+        </mat-form-field>
+        <button mat-raised-button color="primary" style="margin-left: 2%;">Search</button>
+        </div>
+      </mat-tab>
+      <mat-tab label="States">
+        <div class="pin" style="justify-content: space-between;">
+          <form class="States" [formGroup]="stNdDst">
+            <mat-form-field class="formfield">
+              <mat-label>State</mat-label>
+              <input matInput
+                     aria-label="State"
+                     [matAutocomplete]="auto"
+                     [formControl]="stateCtrl" [(ngModel)]="stName"  >
+              <mat-autocomplete #auto="matAutocomplete" >
+
+                <mat-option *ngFor="let state of filteredStates | async" [value]="state.state_name" (onSelectionChange)="getdistrict(state.state_id)">
+
+                  <span>{{state.state_name}}</span>
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="formfield">
+              <mat-label>District</mat-label>
+              <input matInput
+                     aria-label="District"
+                     [matAutocomplete]="auto1"
+                     [formControl]="disCtrl" formControlName="dst" [readonly]="dstSelect">
+              <mat-autocomplete #auto1=matAutocomplete>
+                <mat-option *ngFor="let district of filteredDistrict | async" [value]="district.district_name" (onSelectionChange)="getdata(district.district_name)">
+
+                  <span>{{district.district_name}}</span>
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+            <!-- <mat-slide-toggle
+              [checked]="stateCtrl.disabled"
+              (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()">
+              Disable Input?
+            </mat-slide-toggle> -->
+          </form>
+        <button mat-raised-button color="primary" style="margin-left: 2%;" >Search</button>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
+
+
+</div>

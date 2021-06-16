@@ -1,0 +1,21 @@
+.md-card-image{
+  width: 100%;
+  height: auto;
+}
+.mat-divider{
+  color: crimson;
+  width: 10%;
+  height: 10px;
+}
+ .mat-card{
+   width: 100%;
+   height: auto;
+ }
+ .mat-card-subtitle{
+   font-size: medium;
+ }
+
+ .mat-card-content{
+   font-size: 10px;
+   line-height: 1.3em;
+ }
