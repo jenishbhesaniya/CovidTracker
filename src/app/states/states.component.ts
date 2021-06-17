@@ -2,7 +2,7 @@ import { HttpHeaders,HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, map, startWith} from 'rxjs/operators';
 import { ShareddataService} from '../shared/shareddata.service';
 import {formatDate} from '@angular/common';
 export interface State {
@@ -37,7 +37,10 @@ export class StatesComponent implements OnInit {
   dstSelect = true;
   filteredStates!: Observable<State[]>;
   filteredDistrict!: Observable<District[]>;
-  states: State[] = [] ;
+  states: State[] = [{
+    'state_id':1,
+    'state_name':'Gujarat'
+  }] ;
   district:District[] = [];
   center:Center[]=[];
   displayedColumns: string[] = ['center_id', 'name', 'Avaiable'];
@@ -52,6 +55,8 @@ export class StatesComponent implements OnInit {
     this.filteredStates = this.stateCtrl.valueChanges
       .pipe(
         startWith(''),
+        debounceTime(400),
+        distinctUntilChanged(),
         map(state => state ? this._filterStates(state) : this.states.slice())
       );
 
@@ -80,9 +85,9 @@ export class StatesComponent implements OnInit {
   getstate(){
     this.http.get<any>('https://cdn-api.co-vin.in/api/v2/admin/location/states',{headers:this.reqHeader}).subscribe((data:any) => {
       this.states=data['states'];
-      console.log(this.states);
 
     });
+    console.log(this.states);
 
 
   }
@@ -97,6 +102,7 @@ export class StatesComponent implements OnInit {
     this.filteredDistrict = this.disCtrl.valueChanges
       .pipe(
         startWith(''),
+        debounceTime(400),
         map(district => district ? this._filterDistrict(district) : this.district.slice())
       );
   }
