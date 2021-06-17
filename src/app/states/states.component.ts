@@ -20,6 +20,7 @@ export interface Center{
   address:string;
   available_capacity:number;
   min_age_limit:number;
+  vaccine:string;
 
   slots:any;
 }
@@ -109,11 +110,9 @@ export class StatesComponent implements OnInit {
       );
   }
 getdata(a:number){
-  let d= new Date();
-  console.log(d.getDate() - 1)
-  let date=formatDate(new Date(), 'dd/MM/yyyy', 'en');
- console.log(date);
-  this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id='+a+'&date='+date).subscribe((data: any)=>{
+  let d= formatDate(new Date(),'dd/MM/yyy', 'en-in');
+  console.log(d)
+  this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id='+a+'&date='+d).subscribe((data: any)=>{
     this.center=data['sessions'];
     console.log(this.center);
     this.table=true;

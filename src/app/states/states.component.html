@@ -52,33 +52,32 @@
   </mat-card-content>
 </mat-card>
 </div>
-<div *ngIf="table" class="tableview" data-aos="fade-up">
-  <table mat-table [dataSource]="center" class="mat-elevation-z8 ">
-    <ng-container matColumnDef="center_id">
-      <th mat-header-cell *matHeaderCellDef> Center </th>
-      <td mat-cell *matCellDef="let element" > <div style="font-weight: 300; font-size: medium;">{{element.name}}</div>
-        <div style="font-weight: 100; font-size: small;">{{element.address}}</div> </td>
-    </ng-container>
+<div *ngIf="table" class="tableview" >
+  <mat-list role="mat-list" >
+    <mat-list-item role="listitem" *ngFor="let card of center">
+      <div class="container" >
+        <div class="row">
+      <mat-card style="background-color: whitesmoke; width: 100%;">
+        <mat-card-header>
+          <div class="col-md-4">
+          <mat-card-title style="font-size:medium;">{{card.name}}</mat-card-title>
+          <mat-card-subtitle style="font-size:smaller;">{{card.address}}</mat-card-subtitle>
+        </div>
+        </mat-card-header>
+        <mat-card-content>
+          <ng-template #popTitle><b>Avaiable slot times</b></ng-template>
+          <ng-template #popContent ><b>{{card.slots}}</b></ng-template>
+          <button mat-stroked-button  [ngbPopover]="popContent" [popoverTitle]="popTitle">
+            time
+          </button>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}}
-        <div *ngIf="element.available_capacity==0;else notbook" class="book">booked</div><ng-template #notbook>
-          <div class="avaiable">{{element.available_capacity}}</div>
-        </ng-template>
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="Avaiable">
-      <th mat-header-cell *matHeaderCellDef> Avaiable </th>
-      <td mat-cell *matCellDef="let element"> {{element.vaccine}} </td>
-    </ng-container>
+        </mat-card-content>
 
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+      </mat-card>
+    </div>
+    </div>
+    </mat-list-item>
+  </mat-list>
 
   </div>
   <!-- <app-footer></app-footer> -->

@@ -27,6 +27,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatTableModule} from '@angular/material/table';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MatTableModule} from '@angular/material/table';
   imports: [
     BrowserModule,
     MatSlideToggleModule,
+    MatListModule,
     MatSelectModule,
     MatTableModule,
     MatButtonToggleModule,

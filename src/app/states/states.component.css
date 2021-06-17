@@ -24,3 +24,7 @@ mat-card{
 .tableview{
   margin-top: 5%;
 }
+.mat-list .mat-list-item {
+  height: auto; /* default is 72px */
+  margin-top: 2px;
+}
