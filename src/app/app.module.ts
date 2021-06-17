@@ -27,6 +27,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatTableModule} from '@angular/material/table';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MatTableModule} from '@angular/material/table';
     MatSelectModule,
     MatTableModule,
     MatButtonToggleModule,
+    MatGridListModule,
     MatAutocompleteModule,
     MatSidenavModule,
     MatButtonModule,
