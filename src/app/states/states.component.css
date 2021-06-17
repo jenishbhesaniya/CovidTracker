@@ -6,10 +6,11 @@
   background-color: red;
 }
 .main-div{
-  margin-top: 10%;
+  margin-top: 5%;
   justify-content: center;
   align-items: center;
   display: flex;
+  margin-bottom: 10%;
 }
 mat-card{
   background-color: #9ca9aa ;

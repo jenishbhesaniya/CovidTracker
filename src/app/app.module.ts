@@ -28,6 +28,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -43,11 +45,13 @@ import {MatListModule} from '@angular/material/list';
   ],
   imports: [
     BrowserModule,
+    MatIconModule,
     MatSlideToggleModule,
     MatListModule,
     MatSelectModule,
     MatTableModule,
     MatButtonToggleModule,
+    MatGridListModule,
     MatAutocompleteModule,
     MatSidenavModule,
     MatButtonModule,

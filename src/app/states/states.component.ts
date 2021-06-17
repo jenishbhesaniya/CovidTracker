@@ -5,10 +5,17 @@ import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map, startWith} from 'rxjs/operators';
 import { ShareddataService} from '../shared/shareddata.service';
 import {formatDate} from '@angular/common';
+
 import * as Aos from 'aos';
 export interface State {
   state_id:number
   state_name: string;
+}
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: any;
 }
 export interface District {
   district_id:number
@@ -43,6 +50,11 @@ export class StatesComponent implements OnInit {
     'state_id':1,
     'state_name':'Gujarat'
   }] ;
+  tiles: Tile[] = [
+    {text: 'Helpline', cols: 4, rows: 1, color: 'whitesmokey'},
+    {text: '91 11 23 978046', cols: 2, rows: 1, color: '#4682b4'},
+    {text: '1075', cols: 2, rows: 1, color: '#4682b4'},
+  ];
   district:District[] = [];
   center:Center[]=[];
   displayedColumns: string[] = ['center_id', 'name', 'Avaiable'];
