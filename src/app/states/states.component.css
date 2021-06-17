@@ -6,9 +6,18 @@
   background-color: red;
 }
 .main-div{
-  height: 50vh;
+  margin-top: 20%;
   justify-content: center;
   align-items: center;
   display: flex;
 }
+mat-card{
+  background-color: #9ca9aa ;
+}
+/* mat-tab-group{
+  background-color:#9ca9aa;
+} */
 
+.mat-ripple.mat-focus-indicator{
+  background-color: #9ca9aa;
+}
