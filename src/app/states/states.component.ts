@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map, startWith} from 'rxjs/operators';
 import { ShareddataService} from '../shared/shareddata.service';
 import {formatDate} from '@angular/common';
+import * as Aos from 'aos';
 export interface State {
   state_id:number
   state_name: string;
@@ -75,6 +76,7 @@ export class StatesComponent implements OnInit {
   }
 
     ngOnInit(){
+      Aos.init();
       this.stNdDst = new FormGroup(
         {'stnames': new FormControl(),
           'dst': new FormControl()
