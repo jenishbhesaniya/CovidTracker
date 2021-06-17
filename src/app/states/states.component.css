@@ -11,12 +11,35 @@
   align-items: center;
   display: flex;
 }
+<<<<<<< HEAD
 mat-card{
   background-color: #9ca9aa ;
 }
 /* mat-tab-group{
   background-color:#9ca9aa;
 } */
+=======
+table {
+  width: 100%;
+}
+.avaiable{
+  background: green;
+  align-content: center;
+  border-radius: 0.5em;
+  text-align: center;
+  display: flex;
+  padding: 5px;
+}
+.book{
+  background: red;
+  align-content: center;
+  border-radius: 0.5em;
+  text-align: center;
+  display: flex;
+  padding: 2px;
+}
+
+>>>>>>> ce6e49ba71130e38459ad8ad7d7f21aedce46865
 
 .mat-ripple.mat-focus-indicator{
   background-color: #9ca9aa;

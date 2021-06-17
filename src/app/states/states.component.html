@@ -38,18 +38,12 @@
                      [matAutocomplete]="auto1"
                      [formControl]="disCtrl" formControlName="dst" [readonly]="dstSelect">
               <mat-autocomplete #auto1=matAutocomplete>
-                <mat-option *ngFor="let district of filteredDistrict | async" [value]="district.district_name" (onSelectionChange)="getdata(district.district_name)">
+                <mat-option *ngFor="let district of filteredDistrict | async" [value]="district.district_name" (onSelectionChange)="getdata(district.district_id)">
 
                   <span>{{district.district_name}}</span>
                 </mat-option>
               </mat-autocomplete>
             </mat-form-field>
-
-            <!-- <mat-slide-toggle
-              [checked]="stateCtrl.disabled"
-              (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()">
-              Disable Input?
-            </mat-slide-toggle> -->
           </form>
         <button mat-raised-button color="primary" style="margin-left: 2%;" >Search</button>
         </div>
