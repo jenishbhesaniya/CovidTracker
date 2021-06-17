@@ -2,7 +2,7 @@ import { HttpHeaders,HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, map, startWith} from 'rxjs/operators';
 import { ShareddataService} from '../shared/shareddata.service';
 import {formatDate} from '@angular/common';
 export interface State {
@@ -55,6 +55,8 @@ export class StatesComponent implements OnInit {
     this.filteredStates = this.stateCtrl.valueChanges
       .pipe(
         startWith(''),
+        debounceTime(400),
+        distinctUntilChanged(),
         map(state => state ? this._filterStates(state) : this.states.slice())
       );
 
@@ -100,6 +102,7 @@ export class StatesComponent implements OnInit {
     this.filteredDistrict = this.disCtrl.valueChanges
       .pipe(
         startWith(''),
+        debounceTime(400),
         map(district => district ? this._filterDistrict(district) : this.district.slice())
       );
   }
