@@ -28,8 +28,10 @@ export interface Center{
   available_capacity:number;
   min_age_limit:number;
   vaccine:string;
-
+  available_capacity_dose1:number;
+  available_capacity_dose2:number;
   slots:any;
+  fee_type:string;
 }
 @Component({
   selector: 'app-states',
@@ -110,9 +112,7 @@ export class StatesComponent implements OnInit {
     this.dstSelect=false;
 
     this.http.get<any>('https://cdn-api.co-vin.in/api/v2/admin/location/districts/'+a,{headers:this.reqHeader}).subscribe( data => {
-
       this.district = data['districts']
-      console.log(this.district);
     });
     this.filteredDistrict = this.disCtrl.valueChanges
       .pipe(
