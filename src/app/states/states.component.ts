@@ -109,6 +109,8 @@ export class StatesComponent implements OnInit {
       );
   }
 getdata(a:number){
+  let d= new Date();
+  console.log(d.getDate() - 1)
   let date=formatDate(new Date(), 'dd/MM/yyyy', 'en');
  console.log(date);
   this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id='+a+'&date='+date).subscribe((data: any)=>{
