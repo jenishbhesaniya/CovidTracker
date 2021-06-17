@@ -15,7 +15,7 @@ export interface Tile {
   color: string;
   cols: number;
   rows: number;
-  text: string;
+  text: any;
 }
 export interface District {
   district_id:number
@@ -50,10 +50,9 @@ export class StatesComponent implements OnInit {
     'state_name':'Gujarat'
   }] ;
   tiles: Tile[] = [
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+    {text: 'Helpline', cols: 4, rows: 1, color: 'whitesmokey'},
+    {text: '91 11 23 978046', cols: 2, rows: 1, color: '#4682b4'},
+    {text: '1075', cols: 2, rows: 1, color: '#4682b4'},
   ];
   district:District[] = [];
   center:Center[]=[];
