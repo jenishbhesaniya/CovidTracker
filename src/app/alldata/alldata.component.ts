@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as Aos from 'aos';
 //import { All } from '../shared/data.model';
 @Component({
   selector: 'app-alldata',
@@ -20,6 +21,7 @@ export class AlldataComponent implements OnInit{
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
+    Aos.init();
     this.getdata().subscribe((data:any )=>{
       console.log(data),
       this.data.total_cases = data.Global.TotalConfirmed,
