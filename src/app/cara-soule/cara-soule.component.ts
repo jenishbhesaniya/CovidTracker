@@ -7,7 +7,8 @@ import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/n
   styleUrls: ['./cara-soule.component.css']
 })
 export class CaraSouleComponent implements OnInit {
-  images = ['https://www.constructionexec.com/assets/site_18/images/article/050620030611.jpg?width=1280', 'https://insights.roboglobal.com/hubfs/Untitled-design-5.png'
+  images = ['https://www.constructionexec.com/assets/site_18/images/article/050620030611.jpg?width=1280', 'https://imgk.timesnownews.com/story/iStock-1291166925_3.jpg?tr=w-1200,h-900',
+  'https://images.assettype.com/fortuneindia%2F2021-02%2F4e4bd823-a895-4f2e-9b66-88d1929fe155%2F2DADTDE.jpg?auto=format&q=35&w=1200&rect=0,625,6000,3375','https://cdn-res.keymedia.com/cms/images/us/039/0132_637563566442439701.jpg'
 ];
   constructor() { }
 
