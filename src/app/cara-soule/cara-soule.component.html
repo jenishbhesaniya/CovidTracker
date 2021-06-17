@@ -1,3 +1,4 @@
+<div class="container">
 
   <ngb-carousel #carousel [interval]="1500" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
     <ng-template ngbSlide *ngFor="let img of images; index as i">
@@ -16,6 +17,7 @@
 
 
 <hr>
+</div>
 
 <!-- <div class="form-check">
   <input type="checkbox" class="form-check-input" id="pauseOnHover" (ngModel)="pauseOnHover">
