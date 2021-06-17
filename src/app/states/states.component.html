@@ -1,6 +1,7 @@
+<br>
 <div class="container" data-aos="fade-up"
 data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
-  <mat-grid-list cols="4" rowHeight="90px">
+  <mat-grid-list cols="4" rowHeight="80px" >
     <mat-grid-tile
         *ngFor="let tile of tiles"
         [colspan]="tile.cols"
@@ -13,7 +14,8 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
   </mat-grid-list>
 </div>
 <br>
-<img src="https://www.cowin.gov.in/assets/images/largest-vaccine-banner.jpg" class="img-fluid">
+<img src="https://www.cowin.gov.in/assets/images/largest-vaccine-banner.jpg" class="img-fluid" data-aos="zoom-in"
+data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
 <div class="main-div">
 <mat-card layout="row" layout-align="center center">
   <mat-card-subtitle>Serch Vaccine Centres</mat-card-subtitle>
@@ -67,6 +69,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
   </mat-card-content>
 </mat-card>
 </div>
+<br>
 <div *ngIf="table" class="tableview" data-aos="fade-up">
   <table mat-table [dataSource]="center" class="mat-elevation-z8 ">
     <ng-container matColumnDef="center_id">
@@ -96,4 +99,14 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
   </table>
 
   </div>
+<br>
+  <footer class="page-footer font-small " style="background-color: #9ca9aa;">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+      <a style="cursor: pointer; color: white;" >Covid Vaccine Booke</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
   <!-- <app-footer></app-footer> -->
