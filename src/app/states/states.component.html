@@ -57,6 +57,38 @@
     </mat-tab-group>
   </mat-card-content>
 </mat-card>
-
-
 </div>
+<div *ngIf="table">
+  <table mat-table [dataSource]="center" class="mat-elevation-z8 ">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Age Column -->
+    <ng-container matColumnDef="center_id">
+      <th mat-header-cell *matHeaderCellDef> Center </th>
+      <td mat-cell *matCellDef="let element" > <div style="font-weight: 300; font-size: medium;">{{element.name}}</div>
+        <div style="font-weight: 100; font-size: small;">{{element.address}}</div> </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}}
+        <div *ngIf="element.available_capacity==0;else notbook" class="book">booked</div><ng-template #notbook>
+          <div class="avaiable">{{element.available_capacity}}</div>
+        </ng-template>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Avaiable">
+      <th mat-header-cell *matHeaderCellDef> Avaiable </th>
+      <td mat-cell *matCellDef="let element"> {{element.vaccine}} </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  </div>
