@@ -37,7 +37,10 @@ export class StatesComponent implements OnInit {
   dstSelect = true;
   filteredStates!: Observable<State[]>;
   filteredDistrict!: Observable<District[]>;
-  states: State[] = [] ;
+  states: State[] = [{
+    'state_id':1,
+    'state_name':'Gujarat'
+  }] ;
   district:District[] = [];
   center:Center[]=[];
   displayedColumns: string[] = ['center_id', 'name', 'Avaiable'];
@@ -80,9 +83,9 @@ export class StatesComponent implements OnInit {
   getstate(){
     this.http.get<any>('https://cdn-api.co-vin.in/api/v2/admin/location/states',{headers:this.reqHeader}).subscribe((data:any) => {
       this.states=data['states'];
-      console.log(this.states);
 
     });
+    console.log(this.states);
 
 
   }
