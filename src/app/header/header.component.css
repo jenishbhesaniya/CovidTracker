@@ -1,7 +1,12 @@
 nav{
-  background-color: #9ca9aa;
+  background: rgba(0, 32, 59, 0.5);
 }
 .nav-item a{
   font-weight: 400;
-  color:black;
+  color:antiquewhite;
+}
+.nav-item a:active:hover{
+  font-weight: 400;
+  font-size: 1.02em;
+  color:whitesmoke;
 }

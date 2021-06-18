@@ -7,15 +7,14 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
         [colspan]="tile.cols"
         [rowspan]="tile.rows"
         [style.background]="tile.color">
-        <a href="tel:911123978046" style="cursor: pointer;text-decoration: none;color: black;display: inline-block;"*ngIf=" tile.text == '91 11 23 978046' "><mat-icon aria-hidden="false" style="font-size: 30px;">call</mat-icon><span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
-        <a href="tel:1075" style="cursor: pointer;text-decoration: none;color: black;display: inline-block;"*ngIf=" tile.text == '1075' "><mat-icon style="font-size: 30px;" aria-hidden="false">person</mat-icon><span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
+        <a href="tel:911123978046" class="number" *ngIf=" tile.text == '91 11 23 978046' "><mat-icon aria-hidden="false" style="font-size: 30px;">call</mat-icon><span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
+        <a href="tel:1075" class="number" *ngIf=" tile.text == '1075' "><mat-icon style="font-size: 30px;" aria-hidden="false">person</mat-icon><span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
       <div *ngIf=" tile.text != '91 11 23 978046' && tile.text != '1075'  " style="color: black;font-weight: 500;font-size: 30px;">{{tile.text}}</div>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
 <br>
-<img src="https://www.cowin.gov.in/assets/images/largest-vaccine-banner.jpg" class="img-fluid" data-aos="zoom-in"
-data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
+<img src="https://www.cowin.gov.in/assets/images/largest-vaccine-banner.jpg" class="img-fluid" >
 <div class="main-div">
 <mat-card layout="row" layout-align="center center">
   <mat-card-subtitle>Serch Vaccine Centres</mat-card-subtitle>
@@ -69,7 +68,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
   </mat-card-content>
 </mat-card>
 </div>
-<div *ngIf="table" class="tableview" >
+<div *ngIf="table">
   <mat-list role="mat-list" >
     <mat-list-item role="listitem" *ngFor="let card of center">
       <div class="container-fluid" >

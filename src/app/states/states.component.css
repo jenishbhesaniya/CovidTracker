@@ -48,3 +48,6 @@ mat-card{
   font-size: smaller;
   font-weight: 500;
 }
+.number{
+  cursor: pointer;text-decoration: none;color: black;display: inline-block;
+}
