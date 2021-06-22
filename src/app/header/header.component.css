@@ -5,8 +5,19 @@ nav{
   font-weight: 400;
   color:antiquewhite;
 }
-.nav-item a:active:hover{
+.nav-item a:hover{
   font-weight: 400;
   font-size: 1.02em;
   color:whitesmoke;
+  cursor: pointer;
+}
+.active{
+  color: blue;
+}
+.sticky{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 99;
 }

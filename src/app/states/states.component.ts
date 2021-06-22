@@ -1,11 +1,10 @@
 import { HttpHeaders,HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map, startWith} from 'rxjs/operators';
 import { ShareddataService} from '../shared/shareddata.service';
 import {formatDate} from '@angular/common';
-
 import * as Aos from 'aos';
 export interface State {
   state_id:number
@@ -42,6 +41,8 @@ export interface Center{
 export class StatesComponent implements OnInit {
   stateCtrl = new FormControl();
   disCtrl = new FormControl();
+  formpin!:FormGroup;
+
   stName:string = '';
   stNdDst!:FormGroup;
   tiken!:string;
@@ -66,7 +67,7 @@ export class StatesComponent implements OnInit {
     'Authorization': 'Bearer '+this.token.posToken()
  });
 
-  constructor(private token:ShareddataService,private http:HttpClient) {
+  constructor(private token:ShareddataService,private http:HttpClient ) {
     this.getstate();
     this.filteredStates = this.stateCtrl.valueChanges
       .pipe(
@@ -96,6 +97,11 @@ export class StatesComponent implements OnInit {
         {'stnames': new FormControl(),
           'dst': new FormControl()
         });
+      this.formpin = new FormGroup({
+        'code' : new FormControl(null,[Validators.required,Validators.nullValidator, Validators.pattern("^(0)?[0-9]{6}$")])
+      })
+
+
 
 
     }
@@ -132,5 +138,15 @@ getdata(a:number){
 });
 
 
+}
+getpin(){
+  let d= formatDate(new Date(),'dd/MM/yyy', 'en-in');
+  let pin = this.formpin.get('code')?.value;
+  console.log(d,pin);
+  this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode='+pin+'&date='+d).subscribe(data=>{
+  this.center=data['sessions'];
+  this.table=true;
+  console.log(data)
+  })
 }
 }

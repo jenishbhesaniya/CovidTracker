@@ -30,7 +30,8 @@ import { MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
-
+import { SymptomsComponent } from './symptoms/symptoms.component';
+import { StickyNavModule } from 'ng2-sticky-nav';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,11 +42,13 @@ import {MatIconModule} from '@angular/material/icon';
     InformationComponent,
     VaccineLoginComponent,
     RootComponent,
-    StatesComponent
+    StatesComponent,
+    SymptomsComponent
   ],
   imports: [
     BrowserModule,
     MatIconModule,
+    StickyNavModule,
     MatSlideToggleModule,
     MatListModule,
     MatSelectModule,
