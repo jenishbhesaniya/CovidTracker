@@ -71,7 +71,9 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
     ReactiveFormsModule,
 
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
