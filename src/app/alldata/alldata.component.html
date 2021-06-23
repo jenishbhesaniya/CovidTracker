@@ -1,24 +1,24 @@
 <mat-card style="background-color: #00203B;" >
   <div class="row" >
-      <div class="col-sm-3" data-aos="flip-right" >
+      <div class="col-sm-3" style="text-align: center;" data-aos="flip-right" >
         <mat-card><mat-card-title>Total Cases</mat-card-title>
           <mat-divider [inset]="true"></mat-divider>
-        <mat-card-subtitle style="font-size: 25px;">{{ data.total_cases }}</mat-card-subtitle><mat-card-content style="font-size: 15px;">Last updated on <br>{{  data.date }}</mat-card-content></mat-card>
+        <mat-card-subtitle style="font-size: 35px;padding:20px;">{{ data.total_cases }}</mat-card-subtitle><mat-card-content style="font-size: 15px;">Last updated on <br>{{  data.date }}</mat-card-content></mat-card>
 
       </div>
-      <div class="col-sm-3" data-aos="flip-right" >
+      <div class="col-sm-3" style="text-align: center;" data-aos="flip-right" >
         <mat-card><mat-card-title>Total Deaths</mat-card-title>
           <mat-divider [inset]="true"></mat-divider>
-          <mat-card-subtitle style="font-size: 25px;">{{ data.total_death }}</mat-card-subtitle><mat-card-content style="font-size: 15px;">Last updated on <br>{{  data.date }}</mat-card-content></mat-card>
+          <mat-card-subtitle style="font-size: 35px;padding:20px;">{{ data.total_death }}</mat-card-subtitle><mat-card-content style="font-size: 15px;">Last updated on <br>{{  data.date }}</mat-card-content></mat-card>
 
       </div>
-      <div class="col-sm-3" data-aos="flip-right">
+      <div class="col-sm-3" style="text-align: center;" data-aos="flip-right">
         <mat-card><mat-card-title>Active Case:</mat-card-title>
           <mat-divider [inset]="true"></mat-divider>
-          <mat-card-subtitle style="font-size: 25px;">{{ data.active }}</mat-card-subtitle><mat-card-content style="font-size: 15px;">Last updated on <br>{{  data.date }}</mat-card-content></mat-card>
+          <mat-card-subtitle style="font-size: 35px;padding:20px;">{{ data.active }}</mat-card-subtitle><mat-card-content style="font-size: 15px;">Last updated on <br>{{  data.date }}</mat-card-content></mat-card>
 
       </div>
-      <div class="col-sm-3" data-aos="zoom-in">
+      <div class="col-sm-3" style="text-align: center;" data-aos="zoom-in">
         <mat-card><img src="https://www.who.int/images/default-source/health-topics/coronavirus/map.tmb-768v.jpg" class="md-card-image"></mat-card>
       </div>
   </div>
