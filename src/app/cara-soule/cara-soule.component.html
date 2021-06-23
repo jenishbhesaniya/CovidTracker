@@ -1,22 +1,22 @@
+<ngb-carousel #carousel [interval]="1500" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+  <ng-template ngbSlide *ngFor="let img of images; index as i">
+    <div class="carousel-caption">
+      <button  mat-raised-button routerLink="/VaccineLogin">Get Vaccine</button>
+      <div></div>
 
-
-  <ngb-carousel #carousel [interval]="1500" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
-    <ng-template ngbSlide *ngFor="let img of images; index as i">
-      <div class="carousel-caption">
-        <button  mat-raised-button routerLink="/VaccineLogin">Get Vaccine</button>
-        <div></div>
-
-        <h1 class="c2">
-          <span class='letter' style='display:inline-block;'>Get your Vaccine dose now! </span>
-          </h1>
+      <h1 class="c2">
+        <span class='letter' style='display:inline-block;'>Get your Vaccine dose now! </span>
+        </h1>
+    </div>
+    <a  target="_blank" rel="nofollow noopener noreferrer">
+      <div class="picsum-img-wrapper" >
+        <img [src]="img" alt="My image {{i + 1}} description" style="width: 100%;height: 400px;">
       </div>
-      <a  target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper" >
-          <img [src]="img" alt="My image {{i + 1}} description" style="width: 100%;height: 400px;">
-        </div>
-      </a>
-    </ng-template>
-  </ngb-carousel>
+    </a>
+  </ng-template>
+</ngb-carousel>
+
+
 
 
 

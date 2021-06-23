@@ -1,18 +1,18 @@
 
-<div class="main-div container" style="margin-top: 10%;text-align: center;">
+<div class="main-div container" style="margin-top: 5%;text-align: center;">
   <div *ngIf="!otpsent">
     <mat-card  layout="row" layout-align="center center">
 
     <mat-card-title style="font-size: medium;" ><ol>
       Register or Singin for vaccinations
     </ol></mat-card-title>
-    <mat-card-subtitle>An OTP will be sent to  your mobile number for verification</mat-card-subtitle>
+    <mat-card-subtitle style="color: whitesmoke;">An OTP will be sent to  your mobile number for verification</mat-card-subtitle>
     <form class="container-fluid" [formGroup]="formData" (ngSubmit)="formData.valid && getOtp()">
       <mat-form-field class="example-full-width">
         <mat-label>Mobile Number</mat-label>
         <span matPrefix>+91 &nbsp;</span>
-        <input type="tel" matInput placeholder="Enter the mobile number"  [formControlName]="'mobileNumber'">
-        <mat-error *ngIf="formData.controls.mobileNumber.invalid && formData.controls.mobileNumber.touched">Please Enter valid Number</mat-error>
+        <input type="tel" matInput placeholder="Enter the mobile number"   [formControlName]="'mobileNumber'">
+        <mat-error   *ngIf="formData.controls.mobileNumber.invalid && formData.controls.mobileNumber.touched">Please Enter valid Number</mat-error>
       </mat-form-field>
 
     <div class="container"><button type="submit" mat-raised-button >Get OTP</button></div>
@@ -22,31 +22,32 @@
     <br>
     <br>
     <div *ngIf="otpsent">
-      <mat-card layout="row" layout-align="center center" >
-        <form [formGroup]="otpFetch" (ngSubmit)="verify()">
-          <div class="d-flex justify-content-center align-items-center container" style="background-color:#9ca9aa ;">
-            <div class="card py-5 px-3">
-                <h5 class="m-0">Mobile phone verification</h5>
-                <span class="mobile-text">Enter the code we just send on your mobile phone <b class="text-danger">+91 {{formData.controls.mobileNumber.value}}</b></span>
-                <div class="d-flex flex-row mt-3">
-                  <input  type="text" class="form-control" autofocus="" formControlName="otp">
+      <form [formGroup]="otpFetch" (ngSubmit)="verify()">
+
+          <!-- <div class="card py-5 px-3">
+
+          </div> -->
+          <mat-card layout="row" layout-align="center center">
+            <h5 class="m-0">Mobile phone verification</h5>
+              <span class="mobile-text">Enter the code we just send on your mobile phone <b class="text-danger">+91 {{formData.controls.mobileNumber.value}}</b></span>
+              <div class="d-flex flex-row mt-3">
+                <input  type="text" class="form-control" autofocus="" formControlName="otp">
+              </div>
+              <div><mat-error *ngIf="!otpFetch.controls.otp.valid && otpFetch.controls.otp.touched" style="text-align: center;">Please Enter Valid OTP</mat-error></div>
+              <div class="text-center mt-3">
+                <div class="container"><button type="submit" mat-raised-button [disabled]="otpFetch.controls.otp.invalid" >Verify</button></div>
+                <span class="d-block mobile-text">Don't receive the code?</span>
+                <span class="font-weight-bold text-danger cursor">
+                  <a style="cursor: pointer;" (click)="getOtp()">Resend</a>
+                </span>
+                <!-- <mat-spinner ></mat-spinner> -->
+                <div class="font-weight-bold text-danger cursor">
+                  <a style="cursor: pointer;" (click)="resend()">change number</a>
                 </div>
-                <div><mat-error *ngIf="!otpFetch.controls.otp.valid && otpFetch.controls.otp.touched" style="text-align: center;">Please Enter Valid OTP</mat-error></div>
-                <div class="text-center mt-3">
-                  <div class="container"><button type="submit" mat-raised-button [disabled]="otpFetch.controls.otp.invalid" >Verify</button></div>
-                  <span class="d-block mobile-text">Don't receive the code?</span>
-                  <span class="font-weight-bold text-danger cursor">
-                    <a style="cursor: pointer;" (click)="getOtp()">Resend</a>
-                  </span>
-                  <!-- <mat-spinner ></mat-spinner> -->
-                  <div class="font-weight-bold text-danger cursor">
-                    <a style="cursor: pointer;" (click)="resend()">change number</a>
-                  </div>
-                </div>
-            </div>
-        </div>
-        </form>
-      </mat-card>
+              </div>
+          </mat-card>
+
+      </form>
     </div>
 
 </div>
