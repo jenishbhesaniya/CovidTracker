@@ -95,9 +95,8 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
         <mat-card-actions>
           <div class="row">
             <div class="age">Age: {{card.min_age_limit}}+</div>
-            <ng-template #popTitle><b>Avaiable slot times</b></ng-template>
-            <ng-template #popContent ><b>{{card.slots}}</b></ng-template>
-            <button mat-stroked-button  [ngbPopover]="popContent" [popoverTitle]="popTitle">time</button>
+
+            <button mat-stroked-button  matTooltip={{card.slots}} [matTooltipPosition]="'above'" >Slots time</button>
 
             <div style="margin-left: 2%;margin-top: auto;"> Dose 1: </div>
             <div *ngIf="card.available_capacity_dose1!=0;else close" class="box text-center" style="margin-top: auto;">{{card.available_capacity_dose1}}</div>

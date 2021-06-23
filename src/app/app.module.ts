@@ -30,8 +30,9 @@ import { MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
-import { AuthGuard } from './auth/auth.guard'
 import { SymptomsComponent } from './symptoms/symptoms.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTooltipModule} from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,8 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
   imports: [
     BrowserModule,
     MatIconModule,
+    MatTooltipModule,
+    MatSnackBarModule,
     MatSlideToggleModule,
     MatListModule,
     MatSelectModule,
@@ -71,9 +74,7 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
     ReactiveFormsModule,
 
   ],
-  providers: [
-
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

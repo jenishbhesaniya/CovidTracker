@@ -28,4 +28,8 @@ export class AuthService {
   gettoken(){
     return !!localStorage.getItem('setsession')
   }
+  logout(){
+    localStorage.removeItem('setsession');
+    this.router.navigate(['']);
+  }
 }
