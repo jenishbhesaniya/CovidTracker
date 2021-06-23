@@ -11,6 +11,7 @@ export class AuthService {
   key!:string;
   token!:string;
   txtnid!:string;
+  isLogin = false;
   constructor(private http:HttpClient,private sOBJ:ShareddataService,private router:Router) { }
 
   verifyUser(body:any){

@@ -55,8 +55,9 @@ export class StatesComponent implements OnInit {
   }] ;
   tiles: Tile[] = [
     {text: 'Helpline', cols: 4, rows: 1, color: 'whitesmokey'},
-    {text: '91 11 23 978046', cols: 2, rows: 1, color: '#4682b4'},
-    {text: '1075', cols: 2, rows: 1, color: '#4682b4'},
+    {text: '91 11 23 978046', cols: 2, rows: 1, color: 'rgba(0, 32, 59, 23)'
+  },
+    {text: '1075', cols: 2, rows: 1, color: 'rgba(0, 32, 59, 23)'},
   ];
   district:District[] = [];
   center:Center[]=[];
