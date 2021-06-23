@@ -1,0 +1,27 @@
+import { Component, Injectable, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+import {  ShareddataService } from '../shared/shareddata.service'
+import { Router } from '@angular/router';
+import { User } from '../auth/user.model';
+import { Subject } from 'rxjs';
+@Injectable({providedIn:'root'})
+export class AuthService {
+  user = new Subject<User>();
+  otpsent = false;
+  key!:string;
+  token!:string;
+  txtnid!:string;
+  constructor(private http:HttpClient,private sOBJ:ShareddataService,private router:Router) { }
+
+  verifyUser(body:any){
+    this.http.post<any>('https://cdn-api.co-vin.in/api/v2/auth/public/confirmOTP',body ).subscribe(data => {
+      this.key=data['token'];
+      this.sOBJ.getToke(this.key);
+      const user = new User(this.key);
+      this.user.next(user);
+      console.log("above next router")
+      this.router.navigate(['/states']);
+
+    });
+  }
+}

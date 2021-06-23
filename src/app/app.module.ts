@@ -30,7 +30,7 @@ import { MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
-
+import { AuthGuard } from './auth/auth.guard'
 @NgModule({
   declarations: [
     AppComponent,
