@@ -1,5 +1,5 @@
-import { Component, Injectable, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 import {  ShareddataService } from '../shared/shareddata.service'
 import { Router } from '@angular/router';
 import { User } from '../auth/user.model';
@@ -22,6 +22,6 @@ export class AuthService {
       console.log("above next router")
       this.router.navigate(['/states']);
 
-    });
+    })
   }
 }
