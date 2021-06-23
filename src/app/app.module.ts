@@ -70,7 +70,9 @@ import { SymptomsComponent} from './symptoms/symptoms.component';
     MatInputModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
