@@ -1,5 +1,5 @@
 
-<div class="main-div" style="margin-top: 10%;">
+<div class="main-div container" style="margin-top: 10%;text-align: center;overflow: scroll;">
   <div *ngIf="!otpsent">
     <mat-card  layout="row" layout-align="center center">
 
@@ -24,7 +24,7 @@
     <div *ngIf="otpsent">
       <mat-card layout="row" layout-align="center center" >
         <form [formGroup]="otpFetch" (ngSubmit)="verify()">
-          <div class="d-flex justify-content-center align-items-center container">
+          <div class="d-flex justify-content-center align-items-center container" style="background-color:#9ca9aa ;">
             <div class="card py-5 px-3">
                 <h5 class="m-0">Mobile phone verification</h5>
                 <span class="mobile-text">Enter the code we just send on your mobile phone <b class="text-danger">+91 {{formData.controls.mobileNumber.value}}</b></span>
