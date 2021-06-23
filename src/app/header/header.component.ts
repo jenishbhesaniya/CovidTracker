@@ -9,8 +9,6 @@ import {MatSnackBar, MatSnackBarHorizontalPosition,
   providers:[AuthService]
 })
 export class HeaderComponent implements OnInit {
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
   active=false;
   sticky: boolean = false;
   elementPosition: any;
@@ -20,11 +18,10 @@ export class HeaderComponent implements OnInit {
 
   }
   log(){
-    this._snackBar.open('Are you sure?', 'logout').afterDismissed().subscribe(info=>{
-      if(info.dismissedByAction==true){
-        this.aus.logout();
-      }
+    this._snackBar.open('Are you sure?', 'logout',{duration: 3000}).onAction().subscribe(() =>{
+     this.aus.logout();
     })
+
     // this.aus.logout();
 
   }
