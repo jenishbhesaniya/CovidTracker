@@ -30,7 +30,8 @@ import { MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
-import { AuthGuard } from './auth/auth.guard'
+import { AuthGuard } from './auth/auth.guard';
+import { SymptomsComponent} from './symptoms/symptoms.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { AuthGuard } from './auth/auth.guard'
     InformationComponent,
     VaccineLoginComponent,
     RootComponent,
-    StatesComponent
+    StatesComponent,
+    SymptomsComponent
   ],
   imports: [
     BrowserModule,
