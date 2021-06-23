@@ -8,5 +8,6 @@
   display: flex;
 }
 .mat-card{
-  background-color: #9ca9aa;
+  background-color:rgba(0, 32, 59, 23);
+  color: whitesmoke;
 }
