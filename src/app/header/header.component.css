@@ -15,7 +15,9 @@ nav{
   transition: 0.5s;
   cursor: pointer;
 }
-
+.nav-item a:active{
+  color: whitesmoke;
+}
 .sticky{
   position: fixed;
   top: 0;

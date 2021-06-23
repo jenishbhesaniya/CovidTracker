@@ -1,5 +1,5 @@
 <br>
-<div class="container" data-aos="fade-up"
+<div class="container" data-aos="fade-up" style="margin-top: 60px;"
 data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
   <mat-grid-list cols="4" rowHeight="80px" >
     <mat-grid-tile
@@ -17,10 +17,10 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
 <img src="https://www.cowin.gov.in/assets/images/largest-vaccine-banner.jpg" class="img-fluid" >
 <div class="main-div">
 <mat-card layout="row" layout-align="center center">
-  <mat-card-subtitle>Serch Vaccine Centres</mat-card-subtitle>
+  <mat-card-subtitle style="color: whitesmoke;">Serch Vaccine Centres</mat-card-subtitle>
   <mat-card-content>
-    <mat-tab-group [color]="'primary'" [backgroundColor]="'primary'"  style="justify-content: space-between;">
-      <mat-tab label="Search by pin">
+    <mat-tab-group [color]="'primary'"   style="justify-content: space-between;" style="background-color: whitesmoke;padding: 8px;color: black;">
+      <mat-tab label="Search by pin" >
         <div class="pin" style="justify-content: space-between;">
           <form class="container" [formGroup]="formpin" (ngSubmit)="formpin.valid && getpin()">
           <mat-form-field class="formfield" >
@@ -28,7 +28,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
           <input matInput #postalCode maxlength="6" placeholder="Ex. 941056" [formControlName]="'code'">
           <mat-error *ngIf="formpin.controls.code.invalid && formpin.controls.code.touched">Please Enter valid Pincode</mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" style="margin-left: 2%;">Search</button>
+        <button mat-raised-button style="margin-left: 2%;background-color:rgba(0, 32, 59, 23);color: whitesmoke;">Search</button>
       </form>
 
         </div>
@@ -65,7 +65,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
               </mat-autocomplete>
             </mat-form-field>
           </form>
-        <button mat-raised-button color="primary" style="margin-left: 2%;" >Search</button>
+        <button mat-raised-button  style="margin-left: 2%;background-color:rgba(0, 32, 59, 23);color: whitesmoke;" >Search</button>
         </div>
       </mat-tab>
     </mat-tab-group>
