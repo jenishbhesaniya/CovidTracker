@@ -21,7 +21,11 @@ export class AuthService {
       this.user.next(user);
       console.log("above next router")
       this.router.navigate(['/states']);
+      localStorage.setItem('setsession',this.key)
 
     })
+  }
+  gettoken(){
+    return !!localStorage.getItem('setsession')
   }
 }

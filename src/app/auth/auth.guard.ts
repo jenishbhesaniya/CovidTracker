@@ -10,15 +10,10 @@ export class AuthGuard implements CanActivate {
 
   }
   canActivate(route:ActivatedRouteSnapshot,router:RouterStateSnapshot): boolean | Promise<boolean>| Observable<boolean>{
-    return this.aus.user.pipe(map(user => {
-      console.log('we came to here to check '+user)
-      return !user;
-
-    }),tap(isAuth => {
-      if(!isAuth){
-          console.log('no login')
-          this.router.navigate(['/login']);
-      }
-    }));
+    if(this.aus.gettoken()){
+      return true;
+    }
+    this.router.navigate(['VaccineLogin']);
+    return false;
   }
 }
