@@ -6,7 +6,7 @@ nav{
   font-style: normal;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
   font-size: 18px;
-  color:antiquewhite;
+  color:whitesmoke;
 }
 .nav-item a:hover{
   background-color:whitesmoke;
@@ -15,7 +15,9 @@ nav{
   transition: 0.5s;
   cursor: pointer;
 }
-
+.nav-item a:active{
+  color: whitesmoke;
+}
 .sticky{
   position: fixed;
   top: 0;
