@@ -1,7 +1,23 @@
 nav{
-  background-color: #9ca9aa;
+  background: rgba(0, 32, 59, 23);
 }
 .nav-item a{
   font-weight: 400;
-  color:black;
+  color:antiquewhite;
+}
+.nav-item a:hover{
+  font-weight: 400;
+  font-size: 1.02em;
+  color:whitesmoke;
+  cursor: pointer;
+}
+.active{
+  color: blue;
+}
+.sticky{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 99;
 }

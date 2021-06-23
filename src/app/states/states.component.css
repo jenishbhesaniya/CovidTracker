@@ -29,3 +29,45 @@ mat-card{
   height: auto; /* default is 72px */
   margin-top: 2px;
 }
+.age{
+  margin-left: 5%;
+  margin-right: 2%;
+  background-color: cornflowerblue;
+  padding: 10px;
+  border-radius: 10%;
+  font-size: smaller;
+  font-weight: 500;
+}
+.box{
+  margin-right: 2%;
+  margin-left: 5px;
+  background:gray;
+  padding: 5px;
+
+  border-radius: 15%;
+  font-size: smaller;
+  font-weight: 500;
+}
+.number{
+  cursor: pointer;text-decoration: none;color: black;display: inline-block;
+}
+.vaccineFiltersHolder {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  overflow-x: auto;
+  padding: 20px 12px 5px 44px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+}
+.vaccineFilter {
+  background: white;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  white-space: nowrap;
+  padding: 7px 16px;
+  cursor: pointer;
+  border-radius: 18px;
+  margin-right: 8px;
+}
+

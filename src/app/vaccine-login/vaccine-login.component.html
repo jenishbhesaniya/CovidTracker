@@ -7,7 +7,7 @@
       Register or Singin for vaccinations
     </ol></mat-card-title>
     <mat-card-subtitle>An OTP will be sent to  your mobile number for verification</mat-card-subtitle>
-    <form class="container-fluid" [formGroup]="formData" (ngSubmit)="getOtp()">
+    <form class="container-fluid" [formGroup]="formData" (ngSubmit)="formData.valid && getOtp()">
       <mat-form-field class="example-full-width">
         <mat-label>Mobile Number</mat-label>
         <span matPrefix>+91 &nbsp;</span>

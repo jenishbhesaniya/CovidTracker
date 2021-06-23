@@ -7,15 +7,14 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
         [colspan]="tile.cols"
         [rowspan]="tile.rows"
         [style.background]="tile.color">
-        <a href="tel:911123978046" style="cursor: pointer;text-decoration: none;color: black;display: inline-block;"*ngIf=" tile.text == '91 11 23 978046' "><mat-icon aria-hidden="false" style="font-size: 30px;">call</mat-icon><span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
-        <a href="tel:1075" style="cursor: pointer;text-decoration: none;color: black;display: inline-block;"*ngIf=" tile.text == '1075' "><mat-icon style="font-size: 30px;" aria-hidden="false">person</mat-icon><span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
+        <a href="tel:911123978046" class="number" *ngIf=" tile.text == '91 11 23 978046' "><mat-icon aria-hidden="false" style="font-size: 30px;">call</mat-icon><span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
+        <a href="tel:1075" class="number" *ngIf=" tile.text == '1075' "><mat-icon style="font-size: 30px;" aria-hidden="false">person</mat-icon><span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
       <div *ngIf=" tile.text != '91 11 23 978046' && tile.text != '1075'  " style="color: black;font-weight: 500;font-size: 30px;">{{tile.text}}</div>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
 <br>
-<img src="https://www.cowin.gov.in/assets/images/largest-vaccine-banner.jpg" class="img-fluid" data-aos="zoom-in"
-data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
+<img src="https://www.cowin.gov.in/assets/images/largest-vaccine-banner.jpg" class="img-fluid" >
 <div class="main-div">
 <mat-card layout="row" layout-align="center center">
   <mat-card-subtitle>Serch Vaccine Centres</mat-card-subtitle>
@@ -23,11 +22,15 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
     <mat-tab-group [color]="'primary'" [backgroundColor]="'primary'"  style="justify-content: space-between;">
       <mat-tab label="Search by pin">
         <div class="pin" style="justify-content: space-between;">
-          <mat-form-field>
+          <form class="container" [formGroup]="formpin" (ngSubmit)="formpin.valid && getpin()">
+          <mat-form-field class="formfield" >
           <mat-label>Postal Code</mat-label>
-          <input matInput #postalCode maxlength="6" placeholder="Ex. 941056" >
+          <input matInput #postalCode maxlength="6" placeholder="Ex. 941056" [formControlName]="'code'">
+          <mat-error *ngIf="formpin.controls.code.invalid && formpin.controls.code.touched">Please Enter valid Pincode</mat-error>
         </mat-form-field>
         <button mat-raised-button color="primary" style="margin-left: 2%;">Search</button>
+      </form>
+
         </div>
       </mat-tab>
       <mat-tab label="States">
@@ -69,26 +72,44 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
   </mat-card-content>
 </mat-card>
 </div>
-<div *ngIf="table" class="tableview" >
+<div *ngIf="table">
+  <div class="vaccineFiltersHolder"><div class="vaccineFilter">Age 18-44</div><div class="vaccineFilter">Age 45+</div><div class="vaccineFilter">Dose 1 available</div><div class="vaccineFilter">Dose 2 available</div><div class="vaccineFilter">Free</div><div class="vaccineFilter">Paid</div><div class="vaccineFilter">Covishield</div><div class="vaccineFilter">Covaxin</div><div class="vaccineFilter">Sputnik V</div></div>
   <mat-list role="mat-list" >
     <mat-list-item role="listitem" *ngFor="let card of center">
-      <div class="container" >
+      <div class="container-fluid" >
         <div class="row">
-      <mat-card style="background-color: whitesmoke; width: 100%;">
-        <mat-card-header>
-          <div class="col-md-4">
+      <mat-card style="background-color: whitesmoke; width:100%;" >
+        <mat-card-header style="display: flex;" aria-label="Center">
+          <img mat-grid-avatar src="">
+          <div class="col-md-6">
           <mat-card-title style="font-size:medium;">{{card.name}}</mat-card-title>
           <mat-card-subtitle style="font-size:smaller;">{{card.address}}</mat-card-subtitle>
         </div>
-        </mat-card-header>
-        <mat-card-content>
-          <ng-template #popTitle><b>Avaiable slot times</b></ng-template>
-          <ng-template #popContent ><b>{{card.slots}}</b></ng-template>
-          <button mat-stroked-button  [ngbPopover]="popContent" [popoverTitle]="popTitle">
-            time
-          </button>
+        <div class="col-md-6-left" >
+          <div class="age text-center" style="background-color: green;" *ngIf="card.available_capacity!=0;else booked"> {{card.available_capacity}}</div>
+          <ng-template  #booked><div class="age text-center" style="background-color: red;">Booked</div></ng-template>
+          <div class="age text-center" style="margin-top: 2px;background-color: transparent;">{{card.fee_type}}</div>
 
-        </mat-card-content>
+      </div>
+        </mat-card-header>
+        <mat-card-actions>
+          <div class="row">
+            <div class="age">Age: {{card.min_age_limit}}+</div>
+            <ng-template #popTitle><b>Avaiable slot times</b></ng-template>
+            <ng-template #popContent ><b>{{card.slots}}</b></ng-template>
+            <button mat-stroked-button  [ngbPopover]="popContent" [popoverTitle]="popTitle">time</button>
+
+            <div style="margin-left: 2%;margin-top: auto;"> Dose 1: </div>
+            <div *ngIf="card.available_capacity_dose1!=0;else close" class="box text-center" style="margin-top: auto;">{{card.available_capacity_dose1}}</div>
+            <div style="margin-left: 2%;margin-top: auto;"> Dose 2: </div>
+            <div *ngIf="card.available_capacity_dose2!=0;else close" class="box text-center">{{card.available_capacity_dose2}}</div>
+            <ng-template  #close>
+              <mat-icon [ngStyle]="{'color':'red'}" style="margin-top: auto;">close</mat-icon>
+            </ng-template>
+        </div>
+
+
+        </mat-card-actions>
 
       </mat-card>
     </div>

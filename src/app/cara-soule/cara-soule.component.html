@@ -1,16 +1,18 @@
 
-<div class="container">
 
   <ngb-carousel #carousel [interval]="1500" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
     <ng-template ngbSlide *ngFor="let img of images; index as i">
       <div class="carousel-caption">
-        <button mat-raised-button routerLink="/VaccineLogin">Get Vaccine</button>
+        <button  mat-raised-button routerLink="/VaccineLogin">Get Vaccine</button>
         <div></div>
-        <p>Get your Vaccine Slots Now!</p>
+
+        <h1 class="c2">
+          <span class='letter' style='display:inline-block;'>Get your Vaccine dose now! </span>
+          </h1>
       </div>
       <a  target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img [src]="img" alt="My image {{i + 1}} description" style="width: 100%;min-height: 300px;max-height: 450px;">
+        <div class="picsum-img-wrapper" >
+          <img [src]="img" alt="My image {{i + 1}} description" style="width: 100%;min-height: 300px;max-height: 450px; ">
         </div>
       </a>
     </ng-template>
@@ -18,7 +20,7 @@
 
 
 <hr>
-</div>
+
 
 <!-- <div class="form-check">
   <input type="checkbox" class="form-check-input" id="pauseOnHover" (ngModel)="pauseOnHover">

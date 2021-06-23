@@ -1,0 +1,38 @@
+.symptoms-area {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background-color: #f1f5fe;
+  background-position: -100px center;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.symptoms-image {
+  position: relative;
+  left: -30px;
+}
+
+.symptoms-section {
+  position: relative;
+  z-index: 1;
+}
+
+.symptoms-section.bg-white-color {
+  padding-top: 10px;
+}
+
+.symptoms-section.bg-white-color::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -60px;
+  height: 60px;
+  border-radius: 5px 5px 0 0;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 1230px;
+  margin-left: auto;
+  margin-right: auto;
+}
