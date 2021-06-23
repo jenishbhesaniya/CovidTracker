@@ -1,14 +1,13 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild,AfterViewInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
-import {MatSnackBar, MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
   providers:[AuthService]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   active=false;
   sticky: boolean = false;
   elementPosition: any;
@@ -34,7 +33,7 @@ export class HeaderComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   handleScroll(){
     const windowScroll = window.pageYOffset;
-    if(windowScroll >= this.elementPosition){
+    if(windowScroll >= 250){
       this.sticky = true;
     } else {
       this.sticky = false;

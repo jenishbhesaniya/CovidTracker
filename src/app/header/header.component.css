@@ -19,6 +19,7 @@ nav{
   color: whitesmoke;
 }
 .sticky{
+  background: rgba(0, 32, 59,23);
   position: fixed;
   top: 0;
   width: 100%;

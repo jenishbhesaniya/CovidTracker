@@ -14,7 +14,6 @@
 }
 mat-card{
   background:rgba(0, 32, 59, 23) ;
-  color: white;
 }
 /* mat-tab-group{
   background-color:#9ca9aa;
@@ -61,7 +60,7 @@ mat-card{
   margin-bottom: 25px;
   box-sizing: border-box;
 }
-.vaccineFilter {
+.vaccineFilter{
   background: white;
   border: 1px solid #ddd;
   font-size: 13px;
@@ -71,4 +70,8 @@ mat-card{
   border-radius: 18px;
   margin-right: 8px;
 }
+.vaccineFilter:hover{
+  background-color: thistle;
+}
+
 
