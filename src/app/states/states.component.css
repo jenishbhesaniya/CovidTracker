@@ -61,7 +61,7 @@ mat-card{
   box-sizing: border-box;
 }
 .vaccineFilter{
-  background: white;
+
   border: 1px solid #ddd;
   font-size: 13px;
   white-space: nowrap;
@@ -70,8 +70,8 @@ mat-card{
   border-radius: 18px;
   margin-right: 8px;
 }
-.vaccineFilter:hover{
-  background-color: thistle ;
+.vaccineFilter:checked {
+  background: black;
 }
 
 
