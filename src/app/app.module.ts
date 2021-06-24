@@ -34,6 +34,9 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +78,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgbModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatProgressBarModule
 
 
   ],
