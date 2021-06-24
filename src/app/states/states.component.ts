@@ -1,11 +1,12 @@
 import { HttpHeaders,HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map, startWith} from 'rxjs/operators';
 import { ShareddataService} from '../shared/shareddata.service';
 import {formatDate} from '@angular/common';
 import * as Aos from 'aos';
+import { MatPaginator } from '@angular/material/paginator';
 export interface State {
   state_id:number
   state_name: string;
@@ -41,13 +42,16 @@ export interface Center{
 export class StatesComponent implements OnInit {
   stateCtrl = new FormControl();
   disCtrl = new FormControl();
+  p:any;
   formpin!:FormGroup;
   listlength!:number;
   stName:string = '';
   stNdDst!:FormGroup;
   tiken!:string;
+  date:Array<Date>=[];
   dstSelect = true;
   filteredStates!: Observable<State[]>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   filteredDistrict!: Observable<District[]>;
   states: State[] = [{
     'state_id':1,
@@ -61,6 +65,7 @@ export class StatesComponent implements OnInit {
   ];
   district:District[] = [];
   center:Center[]=[];
+
   displayedColumns: string[] = ['center_id', 'name', 'Avaiable'];
   table:boolean=false;
   reqHeader = new HttpHeaders({
@@ -80,6 +85,7 @@ export class StatesComponent implements OnInit {
 
 
 
+
    }
 
    private _filterStates(value: string): State[] {
@@ -96,12 +102,11 @@ export class StatesComponent implements OnInit {
       Aos.init();
       this.stNdDst = new FormGroup(
         {'stnames': new FormControl(),
-          'dst': new FormControl()
+          'disCtrl': new FormControl()
         });
       this.formpin = new FormGroup({
         'code' : new FormControl(null,[Validators.required,Validators.nullValidator, Validators.pattern("^(0)?[0-9]{6}$")])
       })
-
 
 
 
@@ -121,12 +126,16 @@ export class StatesComponent implements OnInit {
     this.http.get<any>('https://cdn-api.co-vin.in/api/v2/admin/location/districts/'+a,{headers:this.reqHeader}).subscribe( data => {
       this.district = data['districts']
     });
+
     this.filteredDistrict = this.disCtrl.valueChanges
-      .pipe(
-        startWith(''),
-        debounceTime(400),
-        map(district => district ? this._filterDistrict(district) : this.district.slice())
-      );
+    .pipe(
+      startWith(''),
+      debounceTime(400),
+      distinctUntilChanged(),
+      map(district => district ? this._filterDistrict(district) : this.district.slice())
+    );
+
+
   }
 getdata(a:number){
   let d= formatDate(new Date(),'dd/MM/yyy', 'en-in');
@@ -141,6 +150,7 @@ getdata(a:number){
 
 }
 getpin(){
+
   let d= formatDate(new Date(),'dd/MM/yyy', 'en-in');
   let pin = this.formpin.get('code')?.value;
   console.log(d,pin);
@@ -150,4 +160,15 @@ getpin(){
   this.listlength=data['sessions'].length;
   })
 }
+getArray(){
+  let a = new Date();
+  let b = new Date();
+  for(let i =0;i<7;i++){
+    b.setDate(b.getDate()+1);
+    this.date.push(new Date(b));
+  }
 }
+
+}
+
+

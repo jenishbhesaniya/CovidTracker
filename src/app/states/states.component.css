@@ -73,5 +73,9 @@ mat-card{
 .vaccineFilter.active{
   background-color: aqua;
 }
-
+.page{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
 

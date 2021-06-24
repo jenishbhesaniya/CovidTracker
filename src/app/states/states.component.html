@@ -57,7 +57,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
               <input matInput
                      aria-label="District"
                      [matAutocomplete]="auto1"
-                     [formControl]="disCtrl" formControlName="dst" [readonly]="dstSelect">
+                     [formControl]="disCtrl" [readonly]="dstSelect">
               <mat-autocomplete #auto1=matAutocomplete>
                 <mat-option *ngFor="let district of filteredDistrict | async" [value]="district.district_name" (onSelectionChange)="getdata(district.district_id)">
 
@@ -131,7 +131,11 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
     </mat-list-item>
 
   </mat-list>
-
+<div class="page">
+  <pagination-controls
+  (pageChange)="p = $event" [responsive]="true" maxSize:10
+ ></pagination-controls>
+</div>
   </div>
 
   <footer>
