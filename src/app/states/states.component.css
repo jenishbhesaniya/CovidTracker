@@ -8,7 +8,7 @@
 .main-div{
   margin-top: 5%;
   justify-content: center;
-  align-items: center;
+
   display: flex;
   margin-bottom: 10%;
 }
@@ -52,26 +52,35 @@ mat-card{
   cursor: pointer;text-decoration: none;color: black;display: inline-block;
 }
 .vaccineFiltersHolder {
-  width: 100%;
   display: flex;
-  justify-content: left;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
   overflow-x: auto;
-  padding: 20px 12px 5px 44px;
+  padding: 5px 12px 5px 44px;
   margin-bottom: 25px;
   box-sizing: border-box;
 }
 .vaccineFilter{
 
   border: 1px solid #ddd;
-  font-size: 13px;
-  white-space: nowrap;
-  padding: 7px 16px;
+  font-size: 12px;
   cursor: pointer;
+  margin: 5px;
   border-radius: 18px;
-  margin-right: 8px;
+
+  shape-outside: margin-box;
 }
-.vaccineFilter.active{
-  background-color: aqua;
+.vaccineFilter:hover{
+  background-color:#fdbc00;
+  color: black;
+  transition:0.3s;
+}
+.vaccineFilter:active{
+  background-color:#00a67e;
+}
+.vaccineFilter:focus{
+  background-color:#00a67e;
 }
 .page{
   margin-top: 1rem;

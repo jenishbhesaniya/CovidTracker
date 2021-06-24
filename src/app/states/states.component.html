@@ -16,62 +16,68 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
 </div>
 <br>
 <img src="https://www.cowin.gov.in/assets/images/largest-vaccine-banner.jpg" class="img-fluid" style="width: 100%;">
-<div class="main-div">
-<mat-card layout="row" layout-align="center center">
-  <mat-card-subtitle style="color: whitesmoke;">Serch Vaccine Centres</mat-card-subtitle>
-  <mat-card-content>
-    <mat-tab-group [color]="'primary'"   style="justify-content: space-between;" style="background-color: whitesmoke;padding: 8px;color: black;">
-      <mat-tab label="Search by pin" >
-        <div class="pin" style="justify-content: space-between;">
-          <form class="container" [formGroup]="formpin" (ngSubmit)="formpin.valid && getpin()">
-          <mat-form-field class="formfield" >
-          <mat-label>Postal Code</mat-label>
-          <input matInput #postalCode maxlength="6" placeholder="Ex. 941056" [formControlName]="'code'">
-          <mat-error *ngIf="formpin.controls.code.invalid && formpin.controls.code.touched">Please Enter valid Pincode</mat-error>
-        </mat-form-field>
-        <button mat-raised-button style="margin-left: 2%;background-color:rgba(0, 32, 59, 23);color: whitesmoke;">Search</button>
-      </form>
+<div class="main-div" style="position: relative;">
+  <mat-card layout="row" layout-align="center center" style="border-radius: 15px;">
+    <mat-card-subtitle style="color: whitesmoke;">Serch Vaccine Centres</mat-card-subtitle>
+    <mat-card-content>
+      <mat-tab-group [color]="'primary'"   style="justify-content: space-between;" style="background-color: whitesmoke;padding: 8px;color: black;">
+        <mat-tab label="Search by pin" >
+          <div class="pin" style="justify-content: space-between;">
+            <form class="container" [formGroup]="formpin" (ngSubmit)="formpin.valid && getpin()">
+            <mat-form-field class="formfield" >
+            <mat-label>Postal Code</mat-label>
+            <input matInput #postalCode maxlength="6" placeholder="Ex. 941056" [formControlName]="'code'">
+            <mat-error *ngIf="formpin.controls.code.invalid && formpin.controls.code.touched">Please Enter valid Pincode</mat-error>
+          </mat-form-field>
+          <!-- <button mat-raised-button style="margin-left: 2%;background-color:rgba(0, 32, 59, 23);color: whitesmoke;">Search</button> -->
+        </form>
 
-        </div>
-      </mat-tab>
-      <mat-tab label="States">
-        <div class="pin" style="justify-content: space-between;">
-          <form class="States" [formGroup]="stNdDst">
-            <mat-form-field class="formfield">
-              <mat-label>State</mat-label>
-              <input matInput
-                     aria-label="State"
-                     [matAutocomplete]="auto"
-                     [formControl]="stateCtrl" [(ngModel)]="stName"  >
-              <mat-autocomplete #auto="matAutocomplete" >
+          </div>
+        </mat-tab>
+        <mat-tab label="States">
+          <div class="pin" style="justify-content: space-between;">
+            <form class="States" [formGroup]="stNdDst">
+              <mat-form-field class="formfield">
+                <mat-label>State</mat-label>
+                <input matInput
+                       aria-label="State"
+                       [matAutocomplete]="auto"
+                       [formControl]="stateCtrl" [(ngModel)]="stName"  >
+                <mat-autocomplete #auto="matAutocomplete" >
 
-                <mat-option *ngFor="let state of filteredStates | async" [value]="state.state_name" (onSelectionChange)="getdistrict(state.state_id)">
+                  <mat-option *ngFor="let state of filteredStates | async" [value]="state.state_name" (onSelectionChange)="getdistrict(state.state_id)">
 
-                  <span>{{state.state_name}}</span>
-                </mat-option>
-              </mat-autocomplete>
-            </mat-form-field>
-            <br>
-            <mat-form-field class="formfield">
-              <mat-label>District</mat-label>
-              <input matInput
-                     aria-label="District"
-                     [matAutocomplete]="auto1"
-                     [formControl]="disCtrl" [readonly]="dstSelect">
-              <mat-autocomplete #auto1=matAutocomplete>
-                <mat-option *ngFor="let district of filteredDistrict | async" [value]="district.district_name" (onSelectionChange)="getdata(district.district_id)">
+                    <span>{{state.state_name}}</span>
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="formfield">
+                <mat-label>District</mat-label>
+                <input matInput
+                       aria-label="District"
+                       [matAutocomplete]="auto1"
+                       [formControl]="disCtrl" [readonly]="dstSelect">
+                <mat-autocomplete #auto1=matAutocomplete>
+                  <mat-option *ngFor="let district of filteredDistrict | async" [value]="district.district_name" (onSelectionChange)="getdata(district.district_id)">
 
-                  <span>{{district.district_name}}</span>
-                </mat-option>
-              </mat-autocomplete>
-            </mat-form-field>
-          </form>
-        <button mat-raised-button  style="margin-left: 2%;background-color:rgba(0, 32, 59, 23);color: whitesmoke;" >Search</button>
-        </div>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-card-content>
-</mat-card>
+                    <span>{{district.district_name}}</span>
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
+          <!-- <button mat-raised-button  style="margin-left: 2%;background-color:rgba(0, 32, 59, 23);color: whitesmoke;" >Search</button> -->
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+  <!-- <div class="img" style="position:absolute;border-radius: 50px;margin-top: -60px;margin-left: 300px">
+    <img class="img-responsive" src="https://media.istockphoto.com/vectors/doctor-in-protective-suit-inject-vaccine-shot-to-patient-minimize-vector-id1221259525?k=6&m=1221259525&s=612x612&w=0&h=TV_DgVj1DHXAtYtFTgta4ihMHkEIefkUTVghgVOLd-o=" style="width: 100px;height: 100px;border-radius: 50%;">
+  </div> -->
+</div>
+<div *ngIf="showProgress">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
 <div *ngIf="table">
   <mat-selection-list #dates [multiple]="false">
@@ -81,15 +87,15 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
   </mat-selection-list>
   <mat-list role="mat-list" >
   <div class="vaccineFiltersHolder">
-    <button class="vaccineFilter"><span>Age 18-44</span></button>
-    <div class="vaccineFilter">Age 45+</div>
-    <div class="vaccineFilter">Dose 1 available</div>
-    <div class="vaccineFilter">Dose 2 available</div>
-    <div class="vaccineFilter">Free</div>
-    <div class="vaccineFilter">Paid</div>
-    <div class="vaccineFilter">Covishield</div>
-    <div class="vaccineFilter">Covaxin</div>
-    <div class="vaccineFilter">Sputnik V</div>
+    <button class="vaccineFilter" mat-button><span>Age 18-44</span></button>
+    <button class="vaccineFilter" mat-button>Age 45+</button>
+    <button class="vaccineFilter" mat-button>Dose 1 available</button>
+    <button class="vaccineFilter" mat-button>Dose 2 available</button>
+    <button class="vaccineFilter" mat-button>Free</button>
+    <button class="vaccineFilter" mat-button>Paid</button>
+    <button class="vaccineFilter" mat-button>Covishield</button>
+    <button class="vaccineFilter" mat-button>Covaxin</button>
+    <button class="vaccineFilter" mat-button>Sputnik V</button>
   </div>
 
 
