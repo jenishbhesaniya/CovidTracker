@@ -84,4 +84,11 @@ mat-card{
   display: flex;
   justify-content: center;
 }
-
+.option{
+  display: inline-flex;
+  overflow:auto;
+  text-align:center;
+}
+mat-list-option[aria-selected="true"] {
+  background-color: #9ca9aa;
+}

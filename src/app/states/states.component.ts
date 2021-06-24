@@ -48,9 +48,9 @@ export class StatesComponent implements OnInit {
   stName:string = '';
   stNdDst!:FormGroup;
   tiken!:string;
+  showProgress = false
   date:Array<Date>=[];
   dstSelect = true;
-  showProgress = false;
   filteredStates!: Observable<State[]>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   filteredDistrict!: Observable<District[]>;
@@ -162,7 +162,8 @@ getpin(){
   this.center=data['sessions'];
   this.table=true;
   this.listlength=data['sessions'].length;
-  this.showProgress = false;
+  this.showProgress = false
+
   })
 }
 
