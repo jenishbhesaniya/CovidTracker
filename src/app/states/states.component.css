@@ -56,11 +56,10 @@ mat-card{
   width: 100%;
   align-items: center;
   justify-content: center;
-  overflow-x: auto;
+  overflow-y: auto;
   padding: 5px 12px 5px 44px;
   margin-bottom: 25px;
   box-sizing: border-box;
-  overflow:auto;
 }
 .vaccineFilter{
 
@@ -89,10 +88,14 @@ mat-card{
   justify-content: center;
 }
 .option{
-  display: inline-flex;
-  overflow:auto;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
   text-align:center;
+
 }
 mat-list-option[aria-selected="true"] {
   background-color: #9ca9aa;
+  color: #fff;
 }
+
