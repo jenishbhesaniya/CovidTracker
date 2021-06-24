@@ -33,7 +33,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { SymptomsComponent } from './symptoms/symptoms.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +53,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatIconModule,
     MatTooltipModule,
     MatSnackBarModule,
-    NgxPaginationModule,
     MatSlideToggleModule,
     MatListModule,
     MatSelectModule,
