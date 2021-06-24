@@ -1,5 +1,5 @@
 
-
+<!--
   <ngb-carousel #carousel [interval]="1500" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
     <ng-template ngbSlide *ngFor="let img of images; index as i">
       <div class="carousel-caption">
@@ -19,7 +19,86 @@
   </ngb-carousel>
 
 
-<hr>
+<hr> -->
+
+<div class="container-sm">
+  <section class="home" style="border-radius: 20px;">
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-controls">
+      <!-- <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active" style="background-image:url('https://www.pharmaceutical-technology.com/wp-content/uploads/sites/10/2020/12/GettyImages-1290043344.jpg')"></li>
+        <li data-target="#carousel" data-slide-to="1" style="background-image:url('https://imgk.timesnownews.com/story/iStock-1291166925_3.jpg?tr=w-1200,h-900')"></li>
+        <li data-target="#carousel" data-slide-to="2" style="background-image:url('https://cdn-res.keymedia.com/cms/images/us/039/0132_637563566442439701.jpg')"></li>
+        <li data-target="#carousel" data-slide-to="3" style="background-image:url('https://images.assettype.com/fortuneindia%2F2021-02%2F4e4bd823-a895-4f2e-9b66-88d1929fe155%2F2DADTDE.jpg?auto=format&q=35&w=1200&rect=0,625,6000,3375')"></li>
+
+      </ol> -->
+      <!-- <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+       <img src="assets/left-arrow.svg" alt="Prev">
+    </a>
+    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+      <img src="assets/right-arrow.svg" alt="Next">
+    </a> -->
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="background-image:url('https://www.pharmaceutical-technology.com/wp-content/uploads/sites/10/2020/12/GettyImages-1290043344.jpg')">
+        <div class="container">
+          <button  mat-raised-button routerLink="/VaccineLogin">Get Vaccine</button>
+          <hr style="width: 30%;">
+          <h1 class="c2">
+            <span class='letter' style='display:inline-block;'>Get your Vaccine dose now! </span>
+            </h1>
+
+        </div>
+      </div>
+      <div class="carousel-item" style="background-image:url('https://imgk.timesnownews.com/story/iStock-1291166925_3.jpg?tr=w-1200,h-900')">
+        <div class="container">
+          <button  mat-raised-button routerLink="/VaccineLogin">Get Vaccine</button>
+          <hr style="width: 30%;">
+          <h1 class="c2">
+            <span class='letter' style='display:inline-block;'>Get your Vaccine dose now! </span>
+            </h1>
+
+        </div>
+      </div>
+      <div class="carousel-item" style="background-image:url('https://cdn-res.keymedia.com/cms/images/us/039/0132_637563566442439701.jpg')">
+        <div class="container">
+          <button  mat-raised-button routerLink="/VaccineLogin">Get Vaccine</button>
+          <hr style="width: 30%;">
+          <h1 class="c2">
+            <span class='letter' style='display:inline-block;'>Get your Vaccine dose now! </span>
+            </h1>
+
+        </div>
+
+      </div>
+      <div class="carousel-item" style="background-image:url('https://media.npr.org/assets/img/2021/05/12/indian-13_custom-f1546ccd8a7225f5abf64dad527aa60732cc1a73-s800-c85.jpg')">
+        <div class="container">
+          <button  mat-raised-button routerLink="/VaccineLogin">Get Vaccine</button>
+          <hr style="width: 30%;">
+          <h1 class="c2">
+            <span class='letter' style='display:inline-block;'>Get your Vaccine dose now! </span>
+            </h1>
+
+        </div>
+
+      </div>
+      <div class="carousel-item" style="background-image:url('https://images.assettype.com/fortuneindia%2F2021-02%2F4e4bd823-a895-4f2e-9b66-88d1929fe155%2F2DADTDE.jpg?auto=format&q=35&w=1200&rect=0,625,6000,3375')">
+        <div class="container">
+          <button  mat-raised-button routerLink="/VaccineLogin">Get Vaccine</button>
+          <hr style="width: 30%;">
+          <h1 class="c2">
+            <span class='letter' style='display:inline-block;'>Get your Vaccine dose now! </span>
+            </h1>
+
+        </div>
+      </div>
+    </div>
+  </div>
+   </section>
+
+</div>
+
+
 
 
 <!-- <div class="form-check">

@@ -20,3 +20,16 @@
    line-height: 1.3em;
  }
 
+ hr{
+  border: 0;
+  height: 2px;
+
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0),#fdbc00,rgba(0, 32, 59, 0.75) ,#fdbc00, rgba(0, 0, 0, 0));
+}
+
+.x{
+  cursor: pointer;
+}
+.x:hover{
+  transform: scale(1.08);
+}

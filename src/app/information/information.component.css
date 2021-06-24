@@ -1,3 +1,27 @@
 li{
   font-weight: 600;
 }
+/* hr{
+  border: 0;
+  height: 1px;
+
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0),#00203B, rgba(0, 0, 0, 0));
+}
+*/
+/* .xx{
+  border: 0;
+  height: 2px;
+  background-image:  linear-gradient(to right, rgba(0, 0, 0, 0),#00203B, rgba(0, 0, 0, 0));;
+}  */
+li,h4{
+  font-size: 20px; margin:5px;
+}
+/* p{
+  background-color: whitesmoke; font-weight: 400 ; color:rgba(0, 32, 59, 23); border-radius: 5px; padding: 5px;margin: 5px;
+} */
+hr{
+  border: 0;
+  height: 1px;
+
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0),#fdbc00,rgba(0, 32, 59, 0.75) ,#fdbc00, rgba(0, 0, 0, 0));
+}
