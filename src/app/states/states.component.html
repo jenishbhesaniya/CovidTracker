@@ -88,8 +88,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
 
 
   <mat-list role="mat-list" >
-    <mat-list-item role="listitem" *ngFor="let card of center | paginate:
-    { itemsPerPage: 10, currentPage: p }">
+    <mat-list-item role="listitem" *ngFor="let card of center">
       <div class="container-fluid" >
         <div class="row">
       <mat-card style="background-color: whitesmoke; width:100%;" >
@@ -133,7 +132,5 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
   </mat-list>
 
   </div>
+<app-footer></app-footer>
 
-  <footer>
-    <app-footer></app-footer>
-  </footer>

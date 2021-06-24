@@ -9,13 +9,14 @@ import * as Aos from 'aos';
 })
 export class AlldataComponent implements OnInit{
   data={
-    active:1,
-    total_death:'',
-    total_cases:'',
+    active:0,
+    total_death:0,
+    total_cases:0,
     date:Date
   }
+  ct:any = 0;
   getdata(){
-    return this.http.get('https://api.covid19api.com/summary');
+    return this.http.get('https://api.covid19api.com/summary')
 
   }
   constructor(private http:HttpClient) { }
@@ -25,6 +26,12 @@ export class AlldataComponent implements OnInit{
     this.getdata().subscribe((data:any )=>{
       console.log(data),
       this.data.total_cases = data.Global.TotalConfirmed,
+      // this.ct = setInterval(()=> {
+      //   this.data.total_cases++;
+      //   if(this.ct ==   data.Global.TotalConfirmed){
+      //     clearInterval(this.ct)
+      //   }
+      // })
       this.data.total_death = data.Global.TotalDeaths,
       this.data.active = data.Global.TotalConfirmed-(data.Global.TotalRecovered+data.Global.TotalDeaths).toString(),
       this.data.date = data.Global.Date
