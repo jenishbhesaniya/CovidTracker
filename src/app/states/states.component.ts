@@ -42,7 +42,7 @@ export class StatesComponent implements OnInit {
   stateCtrl = new FormControl();
   disCtrl = new FormControl();
   formpin!:FormGroup;
-
+  listlength!:number;
   stName:string = '';
   stNdDst!:FormGroup;
   tiken!:string;
@@ -135,7 +135,7 @@ getdata(a:number){
     this.center=data['sessions'];
     console.log(this.center);
     this.table=true;
-    console.log(this.table);
+     this.listlength=data['sessions'].length;
 });
 
 
@@ -147,7 +147,7 @@ getpin(){
   this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode='+pin+'&date='+d).subscribe(data=>{
   this.center=data['sessions'];
   this.table=true;
-  console.log(data)
+  this.listlength=data['sessions'].length;
   })
 }
 }

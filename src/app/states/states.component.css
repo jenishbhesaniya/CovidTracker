@@ -70,8 +70,8 @@ mat-card{
   border-radius: 18px;
   margin-right: 8px;
 }
-.vaccineFilter:checked {
-  background: black;
+.vaccineFilter.active{
+  background-color: aqua;
 }
 
 
