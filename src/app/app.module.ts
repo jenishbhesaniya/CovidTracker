@@ -33,6 +33,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { SymptomsComponent } from './symptoms/symptoms.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +74,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     NgbModule,
     MatInputModule,
     ReactiveFormsModule,
+
 
   ],
   providers: [],

@@ -22,6 +22,7 @@ export class VaccineLoginComponent implements OnInit {
   token!:string;
   txtnid!:string;
   key!:string;
+  showSpinne=false;
   constructor(private http:HttpClient,private sOBJ:ShareddataService, private router:Router,private aus:AuthService) {
 
     }
@@ -67,6 +68,10 @@ export class VaccineLoginComponent implements OnInit {
       "otp": this.token,
       "txnId":this.txtnid
     };
+    this.showSpinne = true;
+    setTimeout( ()=> {
+      this.showSpinne = true;
+    },8000);
     this.aus.verifyUser(body);
     // this.http.post<any>('https://cdn-api.co-vin.in/api/v2/auth/public/confirmOTP',body ).subscribe(data => {
     //   console.log(data)
