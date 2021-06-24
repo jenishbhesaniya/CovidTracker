@@ -158,7 +158,7 @@ getpin(){
   let pin = this.formpin.get('code')?.value;
   setInterval(()=>{
 
-  },2)
+  },10)
   clearInterval()
   console.log(d,pin);
   this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode='+pin+'&date='+d).subscribe(data=>{
