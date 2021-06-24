@@ -153,6 +153,10 @@ getpin(){
   this.showProgress = true
   let d= formatDate(new Date(),'dd/MM/yyy', 'en-in');
   let pin = this.formpin.get('code')?.value;
+  setInterval(()=>{
+
+  },10)
+  clearInterval()
   console.log(d,pin);
   this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode='+pin+'&date='+d).subscribe(data=>{
   this.center=data['sessions'];

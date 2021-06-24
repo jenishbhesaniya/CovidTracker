@@ -13,7 +13,7 @@
   margin-bottom: 10%;
 }
 mat-card{
-  background:rgba(0, 32, 59, 23) ;
+  background:#fdbc00;
 }
 /* mat-tab-group{
   background-color:#9ca9aa;
@@ -88,14 +88,3 @@ mat-card{
   display: flex;
   justify-content: center;
 }
-.option{
-  display: inline-flex;
-  overflow:auto;
-  text-align:center;
-}
-mat-list-option[aria-selected="true"] {
-  background-color: #9ca9aa;
-}
-
-
-
