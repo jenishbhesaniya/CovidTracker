@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 <div class="main-div container" style="margin-top: 80px;text-align: center;height: 100%;">
+=======
+<div class="main-div container" style="text-align: center;">
+>>>>>>> 03e7089fddb1d5be7035397292ad04674ed2e98c
   <div *ngIf="!otpsent">
     <mat-spinner *ngIf="showSpinne"></mat-spinner>
     <mat-card  layout="row" layout-align="center center">
@@ -20,14 +24,11 @@
     </form>
     </mat-card >
     </div>
-    <br>
-    <br>
+
     <div *ngIf="otpsent">
       <form [formGroup]="otpFetch" (ngSubmit)="verify()">
 
-          <!-- <div class="card py-5 px-3">
 
-          </div> -->
           <mat-card layout="row" layout-align="center center">
             <h5 class="m-0">Mobile phone verification</h5>
               <span class="mobile-text">Enter the code we just send on your mobile phone <b class="text-danger">+91 {{formData.controls.mobileNumber.value}}</b></span>
@@ -52,3 +53,6 @@
     </div>
 
 </div>
+<footer>
+  <app-footer></app-footer>
+</footer>
