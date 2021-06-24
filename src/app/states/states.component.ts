@@ -83,7 +83,7 @@ export class StatesComponent implements OnInit {
         map(state => state ? this._filterStates(state) : this.states.slice())
       );
 
-
+        this.getDate();
 
 
    }
@@ -107,9 +107,6 @@ export class StatesComponent implements OnInit {
       this.formpin = new FormGroup({
         'code' : new FormControl(null,[Validators.required,Validators.nullValidator, Validators.pattern("^(0)?[0-9]{6}$")])
       })
-
-
-
     }
   getstate(){
     this.http.get<any>('https://cdn-api.co-vin.in/api/v2/admin/location/states',{headers:this.reqHeader}).subscribe((data:any) => {
@@ -158,17 +155,18 @@ getpin(){
   this.center=data['sessions'];
   this.table=true;
   this.listlength=data['sessions'].length;
+
   })
 }
-getArray(){
-  let a = new Date();
+
+getDate(){
+  console.log("getting date")
   let b = new Date();
   for(let i =0;i<7;i++){
     b.setDate(b.getDate()+1);
     this.date.push(new Date(b));
   }
 }
-
 }
 
 

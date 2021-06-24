@@ -59,6 +59,7 @@ mat-card{
   padding: 20px 12px 5px 44px;
   margin-bottom: 25px;
   box-sizing: border-box;
+  overflow:auto;
 }
 .vaccineFilter{
 
@@ -69,6 +70,7 @@ mat-card{
   cursor: pointer;
   border-radius: 18px;
   margin-right: 8px;
+
 }
 .vaccineFilter.active{
   background-color: aqua;
@@ -78,4 +80,14 @@ mat-card{
   display: flex;
   justify-content: center;
 }
+.option{
+  display: inline-flex;
+  overflow:auto;
+  text-align:center;
+}
+mat-list-option[aria-selected="true"] {
+  background-color: #9ca9aa;
+}
+
+
 
