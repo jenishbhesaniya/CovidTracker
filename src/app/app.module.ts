@@ -33,7 +33,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { SymptomsComponent } from './symptoms/symptoms.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +50,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     MatIconModule,
     MatTooltipModule,
     MatSnackBarModule,
@@ -81,3 +82,4 @@ import {MatTooltipModule} from '@angular/material/tooltip';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// npm install ngx-pagination
