@@ -13,7 +13,7 @@
   margin-bottom: 10%;
 }
 mat-card{
-  background:#fdbc00;
+  background:rgba(0, 32, 59, 23) ;
 }
 /* mat-tab-group{
   background-color:#9ca9aa;
@@ -52,30 +52,26 @@ mat-card{
   cursor: pointer;text-decoration: none;color: black;display: inline-block;
 }
 .vaccineFiltersHolder {
-  display: flex;
   width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
   overflow-x: auto;
-  padding: 5px 12px 5px 44px;
+  padding: 20px 12px 5px 44px;
   margin-bottom: 25px;
   box-sizing: border-box;
-  overflow:auto;
 }
 .vaccineFilter{
-
+  width: 100%;
   border: 1px solid #ddd;
-  font-size: 12px;
-  cursor: pointer;
   margin: 5px;
+  text-overflow: clip;
   border-radius: 18px;
-
-  shape-outside: margin-box;
 }
 .vaccineFilter:hover{
   background-color:#fdbc00;
   color: black;
-  transition:0.3s;
+  transition:0.5s;
 }
 .vaccineFilter:active{
   background-color:#00a67e;
@@ -88,3 +84,4 @@ mat-card{
   display: flex;
   justify-content: center;
 }
+
