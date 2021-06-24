@@ -40,8 +40,6 @@ export interface Center{
 })
 
 export class StatesComponent implements OnInit {
-
-  showProgress = false
   stateCtrl = new FormControl();
   disCtrl = new FormControl();
   p:any;
@@ -85,7 +83,7 @@ export class StatesComponent implements OnInit {
         map(state => state ? this._filterStates(state) : this.states.slice())
       );
 
-
+        this.getDate();
 
 
    }
@@ -109,9 +107,6 @@ export class StatesComponent implements OnInit {
       this.formpin = new FormGroup({
         'code' : new FormControl(null,[Validators.required,Validators.nullValidator, Validators.pattern("^(0)?[0-9]{6}$")])
       })
-
-
-
     }
   getstate(){
     this.http.get<any>('https://cdn-api.co-vin.in/api/v2/admin/location/states',{headers:this.reqHeader}).subscribe((data:any) => {
@@ -140,7 +135,6 @@ export class StatesComponent implements OnInit {
 
   }
 getdata(a:number){
-  this.showProgress = true
   let d= formatDate(new Date(),'dd/MM/yyy', 'en-in');
   console.log(d)
   this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id='+a+'&date='+d).subscribe((data: any)=>{
@@ -148,12 +142,12 @@ getdata(a:number){
     console.log(this.center);
     this.table=true;
      this.listlength=data['sessions'].length;
-     this.showProgress = false
 });
+
 
 }
 getpin(){
-  this.showProgress = true
+
   let d= formatDate(new Date(),'dd/MM/yyy', 'en-in');
   let pin = this.formpin.get('code')?.value;
   setInterval(()=>{
@@ -165,18 +159,18 @@ getpin(){
   this.center=data['sessions'];
   this.table=true;
   this.listlength=data['sessions'].length;
-  this.showProgress = false
+
   })
 }
-getArray(){
-  let a = new Date();
+
+getDate(){
+  console.log("getting date")
   let b = new Date();
   for(let i =0;i<7;i++){
     b.setDate(b.getDate()+1);
     this.date.push(new Date(b));
   }
 }
-
 }
 
 

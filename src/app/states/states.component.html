@@ -79,12 +79,17 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
 <div *ngIf="showProgress">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
-<div *ngIf="table">
+<div *ngIf="table" >
+  <div class="row container">
   <mat-selection-list #dates [multiple]="false">
-    <mat-list-option *ngFor="let date of date" [value]="date">
-     {{date}}
+    <div class="option" >
+    <mat-list-option *ngFor="let d of date" [value]="d">
+     {{d | date}}
     </mat-list-option>
+  </div>
   </mat-selection-list>
+</div>
+
   <mat-list role="mat-list" >
   <div class="vaccineFiltersHolder">
     <button class="vaccineFilter" mat-button><span>Age 18-44</span></button>

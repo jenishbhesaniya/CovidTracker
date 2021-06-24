@@ -13,7 +13,7 @@
   margin-bottom: 10%;
 }
 mat-card{
-  background:;
+  background:#fdbc00;
 }
 /* mat-tab-group{
   background-color:#9ca9aa;
@@ -60,6 +60,7 @@ mat-card{
   padding: 5px 12px 5px 44px;
   margin-bottom: 25px;
   box-sizing: border-box;
+  overflow:auto;
 }
 .vaccineFilter{
 
