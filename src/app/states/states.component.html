@@ -79,28 +79,23 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
 <div *ngIf="showProgress">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
-<div *ngIf="table" >
-  <div class="container">
+<div *ngIf="table">
   <mat-selection-list #dates [multiple]="false">
-    <div class="option" >
-    <mat-list-option *ngFor="let d of date" [value]="d">
-     {{d | date}}
+    <mat-list-option *ngFor="let date of date" [value]="date">
+     {{date}}
     </mat-list-option>
-  </div>
   </mat-selection-list>
-</div>
-
   <mat-list role="mat-list" >
   <div class="vaccineFiltersHolder">
-    <button class="vaccineFilter" mat-button><span>Age 18-44</span></button>
-    <button class="vaccineFilter" mat-button>Age 45+</button>
-    <button class="vaccineFilter" mat-button>Dose 1 available</button>
-    <button class="vaccineFilter" mat-button>Dose 2 available</button>
-    <button class="vaccineFilter" mat-button>Free</button>
-    <button class="vaccineFilter" mat-button>Paid</button>
-    <button class="vaccineFilter" mat-button>Covishield</button>
-    <button class="vaccineFilter" mat-button>Covaxin</button>
-    <button class="vaccineFilter" mat-button>Sputnik V</button>
+    <button class="vaccineFilter" ><span>Age 18-44</span></button>
+    <button class="vaccineFilter" >Age 45+</button>
+    <button class="vaccineFilter" >Dose 1 available</button>
+    <button class="vaccineFilter" >Dose 2 available</button>
+    <button class="vaccineFilter" >Free</button>
+    <button class="vaccineFilter" >Paid</button>
+    <button class="vaccineFilter" >Covishield</button>
+    <button class="vaccineFilter" >Covaxin</button>
+    <button class="vaccineFilter" >Sputnik V</button>
   </div>
 
 

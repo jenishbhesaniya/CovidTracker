@@ -144,7 +144,7 @@ getdata(a:number){
     console.log(this.center);
     this.table=true;
      this.listlength=data['sessions'].length;
-     this.showProgress = false
+     this.showProgress = false;
 });
 
 
