@@ -86,9 +86,14 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
     <div class="vaccineFilter">Sputnik V</div>
   </div>
 
-
+  <mat-selection-list #dates [multiple]="false">
+    <mat-list-option *ngFor="let date of date" [value]="date">
+     {{date}}
+    </mat-list-option>
+  </mat-selection-list>
   <mat-list role="mat-list" >
-    <mat-list-item role="listitem" *ngFor="let card of center">
+    <mat-list-item role="listitem" *ngFor="let card of center | paginate:
+    { itemsPerPage: 10, currentPage: p }">
       <div class="container-fluid" >
         <div class="row">
       <mat-card style="background-color: whitesmoke; width:100%;" >
