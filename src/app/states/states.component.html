@@ -40,9 +40,15 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
             <ng-container dates>
               <mat-selection-list [multiple]="false" >
                 <div class="option" >
+                  <div style="float: left;display: flex;" >
+                    <button (click)="scrollLeft()"><mat-icon>keyboard_arrow_left</mat-icon></button>
+                </div>
                 <mat-list-option *ngFor="let d of date" [value]="d" (click)="getpin(d)">
                  {{d | date}}
                 </mat-list-option>
+                <div style="float: right;display: flex;justify-content: center;">
+                  <button (click)="scrollRight()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+              </div>
               </div>
               </mat-selection-list>
             </ng-container>
