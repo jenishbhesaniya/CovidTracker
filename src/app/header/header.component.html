@@ -19,11 +19,11 @@
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a class="nav-link" style="cursor: pointer;"  >Summary</a>
         </li>
-        <li class="nav-item " [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a class="nav-link" style="cursor: pointer;" *ngIf="aus.gettoken() else logout" (click)="log()" >Logout</a>
         </li>
         <ng-template #logout>
-          <a class="nav-link" style="cursor: pointer;" routerLink="/VaccineLogin" >Login</a>
+          <a class="nav-link " style="cursor: pointer;" routerLink="/VaccineLogin" >Login</a>
         </ng-template>
 
       </ul>
