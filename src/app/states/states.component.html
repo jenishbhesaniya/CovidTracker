@@ -60,7 +60,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
                        [formControl]="stateCtrl" [(ngModel)]="stName"  >
                 <mat-autocomplete #auto="matAutocomplete" >
 
-                  <mat-option *ngFor="let state of filteredStates | async" [value]="state.state_name" (onSelectionChange)="getdistrict(state.state_id)">
+                    <mat-option *ngFor="let state of filteredStates | async" [value]="state.state_name" (onSelectionChange)="getdistrict(state.state_id)">
 
                     <span>{{state.state_name}}</span>
                   </mat-option>
