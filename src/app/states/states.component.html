@@ -7,23 +7,28 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
         [colspan]="tile.cols"
         [rowspan]="tile.rows"
         [style.background]="tile.color" >
-        <a href="tel:911123978046" style="color: whitesmoke;" class="number" *ngIf=" tile.text == '91 11 23 978046' "><mat-icon aria-hidden="false" style="font-size: 30px;  background:rgba(0, 32, 59, 23) ;
+        <a href="tel:911123978046" style="color: whitesmoke;" class="number" *ngIf=" tile.text == '91 11 23 978046' ">
+          <mat-icon aria-hidden="false" style="font-size: 30px;  background:rgba(0, 32, 59, 23) ;
 ">call</mat-icon><span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
-        <a href="tel:1075" class="number" style="color: whitesmoke;" *ngIf=" tile.text == '1075' "><mat-icon style="font-size: 30px;" aria-hidden="false">person</mat-icon><span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
-      <div *ngIf=" tile.text != '91 11 23 978046' && tile.text != '1075'  " style="color:rgba(0, 32, 59, 23);font-weight: 500;font-size: 30px;">{{tile.text}}</div>
+        <a href="tel:1075" class="number" style="color: whitesmoke;" *ngIf=" tile.text == '1075' ">
+          <mat-icon style="font-size: 30px;" aria-hidden="false">person</mat-icon>
+          <span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
+      <div *ngIf=" tile.text != '91 11 23 978046' && tile.text != '1075'" style="color:rgba(0, 32, 59, 23);font-weight: 500;font-size: 30px;">
+        {{tile.text}}
+      </div>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
 <br>
 <img src="https://www.cowin.gov.in/assets/images/largest-vaccine-banner.jpg" class="img-fluid" style="width: 100%;">
-<div class="main-div" style="position: relative;">
-  <mat-card layout="row" layout-align="center center" style="border-radius: 15px;">
+<div class="main-div" >
+  <mat-card layout="row" layout-align="center center" style="border-radius: 15px; ">
     <mat-card-subtitle style="color: whitesmoke;">Serch Vaccine Centres</mat-card-subtitle>
     <mat-card-content>
-      <mat-tab-group [color]="'primary'"   style="justify-content: space-between;" style="background-color: whitesmoke;padding: 8px;color: black;">
+      <mat-tab-group [color]="'primary'"   class="tab" (selectedTabChange)="changetab()">
         <mat-tab label="Search by pin" >
           <div class="pin" style="justify-content: space-between;">
-            <form class="container" [formGroup]="formpin" (ngSubmit)="formpin.valid && getpin()">
+            <form class="container" [formGroup]="formpin" (ngSubmit)="formpin.valid && getpin(today)">
             <mat-form-field class="formfield" >
             <mat-label>Postal Code</mat-label>
             <input matInput #postalCode maxlength="6" placeholder="Ex. 941056" [formControlName]="'code'">
@@ -32,15 +37,15 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
           <!-- <button mat-raised-button style="margin-left: 2%;background-color:rgba(0, 32, 59, 23);color: whitesmoke;">Search</button> -->
         </form>
           <app-detail>
-            <div class="container">
-              <mat-selection-list [multiple]="false">
+            <ng-container dates>
+              <mat-selection-list [multiple]="false" >
                 <div class="option" >
-                <mat-list-option *ngFor="let d of date" [value]="d">
+                <mat-list-option *ngFor="let d of date" [value]="d" (click)="getpin(d)">
                  {{d | date}}
                 </mat-list-option>
               </div>
               </mat-selection-list>
-            </div>
+            </ng-container>
           </app-detail>
           </div>
         </mat-tab>
@@ -69,7 +74,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
                        [matAutocomplete]="auto1"
                        [formControl]="disCtrl" [readonly]="dstSelect">
                 <mat-autocomplete #auto1=matAutocomplete>
-                  <mat-option *ngFor="let district of filteredDistrict | async" [value]="district.district_name" (onSelectionChange)="getdata(district.district_id)">
+                  <mat-option *ngFor="let district of filteredDistrict | async" [value]="district.district_name" (onSelectionChange)="getdata(today,district.district_id)">
 
                     <span>{{district.district_name}}</span>
                   </mat-option>
@@ -79,15 +84,16 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
           <!-- <button mat-raised-button  style="margin-left: 2%;background-color:rgba(0, 32, 59, 23);color: whitesmoke;" >Search</button> -->
           </div>
           <app-detail>
-            <div class="container">
+            <ng-container dates>
               <mat-selection-list [multiple]="false">
                 <div class="option" >
-                <mat-list-option *ngFor="let d of date" [value]="d">
+                <mat-list-option *ngFor="let d of date" [value]="d" (click)="getdata(d,dist_id)">
                  {{d | date}}
                 </mat-list-option>
               </div>
               </mat-selection-list>
-            </div>
+            </ng-container>
+
           </app-detail>
         </mat-tab>
       </mat-tab-group>
