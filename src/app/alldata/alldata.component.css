@@ -34,12 +34,12 @@
   transform: scale(1.08);
 }
 
-
+/*
 .blnk{
   font-size: 35px;padding:10px;color:#ff0000;
   animation: blinker 1.5s linear infinite;
-}
-
+} */
+/*
 @keyframes blinker{
   60%{
     opacity: 0.2;
@@ -53,4 +53,4 @@
   margin-right: 3px;
   border-radius: 50%;
   display: inline-block;
-}
+} */

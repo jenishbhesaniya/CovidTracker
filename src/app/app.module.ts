@@ -35,6 +35,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { DetailComponent } from './detail/detail.component';
 
 
 
@@ -50,6 +51,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     RootComponent,
     StatesComponent,
     SymptomsComponent,
+    DetailComponent,
 
   ],
   imports: [

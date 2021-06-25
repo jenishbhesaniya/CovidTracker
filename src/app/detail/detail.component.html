@@ -1,0 +1,68 @@
+<ng-container  *ngIf="data1.table" >
+
+<ng-content></ng-content>
+
+
+  <mat-list role="mat-list" >
+  <div class="vaccineFiltersHolder">
+    <button class="vaccineFilter" mat-button><span>Age 18-44</span></button>
+    <button class="vaccineFilter" mat-button>Age 45+</button>
+    <button class="vaccineFilter" mat-button>Dose 1</button>
+    <button class="vaccineFilter" mat-button>Dose 2 </button>
+    <button class="vaccineFilter" mat-button>Free</button>
+    <button class="vaccineFilter" mat-button>Paid</button>
+    <button class="vaccineFilter" mat-button>Covishield</button>
+    <button class="vaccineFilter" mat-button>Covaxin</button>
+    <button class="vaccineFilter" mat-button>Sputnik V</button>
+  </div>
+
+
+    <mat-list-item role="listitem" *ngFor="let card of data1.center | paginate:
+    { itemsPerPage: 10, currentPage: p }">
+      <div class="container-fluid" >
+        <div class="row">
+      <mat-card style="background-color: whitesmoke; width:100%;" >
+        <mat-card-header style="display: flex;" aria-label="Center">
+          <img mat-grid-avatar src="">
+          <div class="col-md-6">
+          <mat-card-title style="font-size:medium;">{{card.name}}</mat-card-title>
+          <mat-card-subtitle style="font-size:smaller;">{{card.address}}</mat-card-subtitle>
+        </div>
+        <div class="col-md-6-left" >
+          <div class="age text-center" style="background-color: green;" *ngIf="card.available_capacity!=0;else booked"> {{card.available_capacity}}</div>
+          <ng-template  #booked><div class="age text-center" style="background-color: red;">Booked</div></ng-template>
+          <div class="age text-center" style="margin-top: 2px;background-color: transparent;">{{card.fee_type}}</div>
+
+      </div>
+        </mat-card-header>
+        <mat-card-actions>
+          <div class="row">
+            <div class="age">Age: {{card.min_age_limit}}+</div>
+
+            <button mat-stroked-button  matTooltip={{card.slots}} [matTooltipPosition]="'above'" >Slots time</button>
+
+            <div style="margin-left: 2%;margin-top: auto;"> Dose 1: </div>
+            <div *ngIf="card.available_capacity_dose1!=0;else close" class="box text-center" style="margin-top: auto;">{{card.available_capacity_dose1}}</div>
+            <div style="margin-left: 2%;margin-top: auto;"> Dose 2: </div>
+            <div *ngIf="card.available_capacity_dose2!=0;else close" class="box text-center">{{card.available_capacity_dose2}}</div>
+            <ng-template  #close>
+              <mat-icon [ngStyle]="{'color':'red'}" style="margin-top: auto;">close</mat-icon>
+            </ng-template>
+        </div>
+
+
+        </mat-card-actions>
+
+      </mat-card>
+    </div>
+    </div>
+
+    </mat-list-item>
+
+  </mat-list>
+<div class="page">
+  <pagination-controls
+  (pageChange)="p = $event" [responsive]="true" maxSize:10
+ ></pagination-controls>
+</div>
+</ng-container>
