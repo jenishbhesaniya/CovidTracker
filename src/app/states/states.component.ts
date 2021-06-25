@@ -21,18 +21,7 @@ export interface District {
   district_id:number
   district_name: string;
 }
-export interface Center{
-  center_id:number;
-  name:string;
-  address:string;
-  available_capacity:number;
-  min_age_limit:number;
-  vaccine:string;
-  available_capacity_dose1:number;
-  available_capacity_dose2:number;
-  slots:any;
-  fee_type:string;
-}
+
 @Component({
   selector: 'app-states',
   templateUrl: './states.component.html',
@@ -42,14 +31,14 @@ export interface Center{
 export class StatesComponent implements OnInit {
   stateCtrl = new FormControl();
   disCtrl = new FormControl();
-  p:any;
+  date:Array<Date>=[new Date()];
   formpin!:FormGroup;
   listlength!:number;
   stName:string = '';
   stNdDst!:FormGroup;
   tiken!:string;
   showProgress = false
-  date:Array<Date>=[];
+
   dstSelect = true;
   filteredStates!: Observable<State[]>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -65,10 +54,10 @@ export class StatesComponent implements OnInit {
     {text: '1075', cols: 2, rows: 1, color: 'rgba(0, 32, 59, 23)'},
   ];
   district:District[] = [];
-  center:Center[]=[];
+
 
   displayedColumns: string[] = ['center_id', 'name', 'Avaiable'];
-  table:boolean=false;
+
   reqHeader = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': 'Bearer '+this.token.posToken()
@@ -76,6 +65,7 @@ export class StatesComponent implements OnInit {
 
   constructor(private token:ShareddataService,private http:HttpClient ) {
     this.getstate();
+    this.getDate();
     this.filteredStates = this.stateCtrl.valueChanges
       .pipe(
         startWith(''),
@@ -84,7 +74,6 @@ export class StatesComponent implements OnInit {
         map(state => state ? this._filterStates(state) : this.states.slice())
       );
 
-        this.getDate();
 
 
    }
@@ -140,9 +129,9 @@ getdata(a:number){
   let d= formatDate(new Date(),'dd/MM/yyy', 'en-in');
   console.log(d)
   this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id='+a+'&date='+d).subscribe((data: any)=>{
-    this.center=data['sessions'];
-    console.log(this.center);
-    this.table=true;
+    this.token.center=data['sessions'];
+    console.log(this.token.center);
+    this.token.table=true;
      this.listlength=data['sessions'].length;
      this.showProgress = false;
 });
@@ -150,7 +139,8 @@ getdata(a:number){
 
 }
 getpin(){
-  this.showProgress = true
+  this.showProgress = true;
+
   let d= formatDate(new Date(),'dd/MM/yyy', 'en-in');
   let pin = this.formpin.get('code')?.value;
   setInterval(()=>{
@@ -159,14 +149,13 @@ getpin(){
   clearInterval()
   console.log(d,pin);
   this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode='+pin+'&date='+d).subscribe(data=>{
-  this.center=data['sessions'];
-  this.table=true;
+  this.token.center=data['sessions'];
+  this.token.table=true;
   this.listlength=data['sessions'].length;
   this.showProgress = false
 
   })
 }
-
 getDate(){
   console.log("getting date")
   let b = new Date();
@@ -175,6 +164,7 @@ getDate(){
     this.date.push(new Date(b));
   }
 }
+
 }
 
 
