@@ -45,7 +45,6 @@
 
 }
 .vaccineFilter{
-  width: 100%;
   border: 1px solid #ddd;
   margin: 5px;
 
@@ -68,15 +67,4 @@
   display: flex;
   justify-content: center;
 }
-.option{
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  text-align:center;
-  display: flex;
 
-}
-mat-list-option[aria-selected="true"] {
-  background-color: #9ca9aa;
-  color: #fff;
-}

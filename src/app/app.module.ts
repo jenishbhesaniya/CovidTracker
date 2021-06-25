@@ -36,7 +36,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DetailComponent } from './detail/detail.component';
-
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -58,6 +58,7 @@ import { DetailComponent } from './detail/detail.component';
     BrowserModule,
     NgxPaginationModule,
     MatIconModule,
+    MatChipsModule,
     MatTooltipModule,
     MatSnackBarModule,
     MatSlideToggleModule,

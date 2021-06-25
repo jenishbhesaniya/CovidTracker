@@ -1,5 +1,5 @@
 import { HttpHeaders,HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map, startWith} from 'rxjs/operators';
@@ -41,8 +41,10 @@ export class StatesComponent implements OnInit {
   today:Date=new Date;
   dist_id?:number
   dstSelect = true;
+  posdate:Date=new Date();
   filteredStates!: Observable<State[]>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild('options', { read: ElementRef }) public options!: ElementRef<any>;
   filteredDistrict!: Observable<District[]>;
   states: State[] = [{
     'state_id':1,
@@ -153,16 +155,24 @@ getpin(date:Date){
   })
 }
 getDate(){
-  console.log("getting date")
-  let b = new Date();
-  for(let i =0;i<7;i++){
+  console.log("getting date");
+  let b = new Date(this.posdate);
+  for(let i =0;i<5;i++){
     b.setDate(b.getDate()+1);
     this.date.push(new Date(b));
   }
+  this.posdate=b;
 }
 changetab(){
   this.token.table=false;
+}
+public scrollRight(): void {
+  this.options.nativeElement.scrollTo({ left: (this.options.nativeElement.scrollLeft + 150), behavior: 'smooth' });
+  this.getDate();
+}
 
+public scrollLeft(): void {
+  this.options.nativeElement.scrollTo({ left: (this.options.nativeElement.scrollLeft - 150), behavior: 'smooth' });
 }
 
 }
