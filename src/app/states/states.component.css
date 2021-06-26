@@ -9,6 +9,7 @@
   margin-top: 5%;
   justify-content: center;
   margin-bottom: 10%;
+  width: fit-content;
 }
 .tab{
   justify-content: space-between;background-color: whitesmoke;padding: 8px;color: black;
@@ -20,9 +21,8 @@ mat-card{
   background-color:#9ca9aa;
 } */
 .option{
-
-
   display: flex;
+ width: 100%;
 }
 .scroll{
   width: 50px;
@@ -34,7 +34,7 @@ mat-list-option[aria-selected="true"] {
   color: #fff;
 }
 virtual-scroller {
-  width: 80%;
+  width: 600px;
   height:auto;
 
 }
