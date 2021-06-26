@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-information',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./information.component.css']
 })
 export class InformationComponent implements OnInit {
-
-  constructor() { }
+  isLog = false;
+  constructor(private auth:AuthService) { }
 
   ngOnInit(): void {
+    if(this.auth.isLogin){
+      this.isLog = this.auth.isLogin
+    }
   }
 
 }
