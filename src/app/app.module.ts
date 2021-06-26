@@ -38,6 +38,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DetailComponent } from './detail/detail.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { ChipsMultiSelectComponent } from './detail/chips-multi-select/chips-multi-select.component';
+import { SummaryComponent } from './summary/summary.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { ChipsMultiSelectComponent } from './detail/chips-multi-select/chips-mul
     SymptomsComponent,
     DetailComponent,
     ChipsMultiSelectComponent,
+    SummaryComponent,
 
   ],
   imports: [

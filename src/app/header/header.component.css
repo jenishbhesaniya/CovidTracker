@@ -17,6 +17,20 @@ nav{
   /* */
 }
 
+.nav-item a:focus{
+  background-color:#fdbc00;
+  color:rgba(0, 32, 59, 23);
+  border-radius: 5px;
+  transition: 0.5s;
+  cursor: pointer;
+  /* */
+}
+
+
+.nav-link.show{
+  color: white;
+}
+
 .sticky{
   background: rgba(0, 32, 59,23);
   position: fixed;

@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-light" #stickyMenu [class.sticky] = "sticky" >
+<nav class="navbar navbar-expand-lg navbar-dark" #stickyMenu [class.sticky] = "sticky" >
   <div class="container-fluid">
     <a class="navbar-brand" style="cursor: pointer; font-weight: 500; color:whitesmoke" routerLink="/index">Covid-19 Tracker</a>
     <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,13 +11,13 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"[routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a class="nav-link " routerLink="">Home</a>
+          <a class="nav-link " routerLink="index">Home</a>
         </li>
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a class="nav-link" routerLink="/states">Get Vaccicne Centre</a>
         </li>
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a class="nav-link" style="cursor: pointer;"  >Summary</a>
+          <a class="nav-link" style="cursor: pointer;" routerLink="summary" >Summary</a>
         </li>
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a class="nav-link" style="cursor: pointer;" *ngIf="aus.gettoken() else logout" (click)="log()" >Logout</a>
