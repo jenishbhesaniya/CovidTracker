@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { RootComponent } from './root/root.component';
 import { StatesComponent } from './states/states.component';
 import { AuthGuard } from './auth/auth.guard';
+import { SummaryComponent } from './summary/summary.component';
 const routes: Routes = [
   {path:'',redirectTo:'/index',pathMatch:'full'},
   {path:'index',component:RootComponent},
   {path:'VaccineLogin', component:VaccineLoginComponent},
   {path:'',component:RootComponent},
-  {path:'states', component:StatesComponent,canActivate:[AuthGuard]}
+  {path:'states', component:StatesComponent,canActivate:[AuthGuard]},
+  {path:'summary',component:SummaryComponent}
 
 ];
 

@@ -38,7 +38,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DetailComponent } from './detail/detail.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { ChipsMultiSelectComponent } from './detail/chips-multi-select/chips-multi-select.component';
-import { VirtualScrollerModule } from 'ngx-virtual-scroller';
+import { SummaryComponent } from './summary/summary.component';
+import {VirtualScrollerModule} from 'ngx-virtual-scroller';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { VirtualScrollerModule } from 'ngx-virtual-scroller';
     SymptomsComponent,
     DetailComponent,
     ChipsMultiSelectComponent,
+    SummaryComponent,
 
   ],
   imports: [
@@ -95,3 +97,4 @@ import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 })
 export class AppModule { }
 // npm install ngx-pagination
+// npm install ngx-virtual-scroller
