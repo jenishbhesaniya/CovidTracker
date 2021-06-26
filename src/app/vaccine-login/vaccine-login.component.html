@@ -22,10 +22,10 @@
 
     <div *ngIf="otpsent">
       <form [formGroup]="otpFetch" (ngSubmit)="verify()">
-          <mat-card layout="row" layout-align="center center" style="border-radius: 20px;padding-top: 45px;">
+          <mat-card layout="row" layout-align="center center" style="border-radius: 20px;padding-top: 52px;">
             <h4>Verify your <u>OTP</u></h4>
               <span class="mobile-text">Enter the code we just send on your mobile phone <b class="text-danger">+91 {{formData.controls.mobileNumber.value}}</b></span>
-              <div class="d-flex flex-row mt-3">
+              <div class="d-flex flex-row mt-3 container-sm" style="width:130px;justify-content: center;align-items: center;">
                 <input  type="text" class="form-control" autofocus="" formControlName="otp">
               </div>
               <div><mat-error *ngIf="!otpFetch.controls.otp.valid && otpFetch.controls.otp.touched" style="text-align: center;">Please Enter Valid OTP</mat-error></div>
