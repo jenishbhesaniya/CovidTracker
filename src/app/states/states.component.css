@@ -11,6 +11,7 @@
   align-items: center;
   display: flex;
   margin-bottom: 10%;
+  width: fit-content;
 }
 
 @media (max-width:618px){
@@ -34,9 +35,8 @@ mat-card{
 
 
 .option{
-
-
   display: flex;
+ width: 100%;
 }
 .scroll{
   width: 50px;

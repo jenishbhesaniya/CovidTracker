@@ -43,9 +43,9 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
                 <div class="scroll">
                   <button class="s" (click)="scrollLeft()"><mat-icon>keyboard_arrow_left</mat-icon></button>
                 </div>
-                <virtual-scroller  #options [horizontal]="true"  [items]="date">
+                <virtual-scroller  #options [horizontal]="true"  >
 
-                <mat-chip *ngFor="let d of date" [value]="d" (click)="getpin(d)" >
+                <mat-chip *ngFor="let d of date" [value]="d" (click)="getpin(d)" style="margin-left: 5px;margin-right: 5px;">
                 {{d |date}}</mat-chip>
                </virtual-scroller>
               <div class="scroll">
