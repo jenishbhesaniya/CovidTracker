@@ -9,7 +9,6 @@
   margin-top: 5%;
   justify-content: center;
   margin-bottom: 10%;
-  display: flex;
 }
 .tab{
   justify-content: space-between;background-color: whitesmoke;padding: 8px;color: black;

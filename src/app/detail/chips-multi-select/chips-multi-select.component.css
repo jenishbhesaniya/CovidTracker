@@ -1,0 +1,17 @@
+/* .vaccineFiltersHolder {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 20px 12px 5px 44px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+
+} */
+mat-icon {
+  height: 20px;
+  width: 20px;
+  font-size: 20px;
+  margin-right: 5px;
+}

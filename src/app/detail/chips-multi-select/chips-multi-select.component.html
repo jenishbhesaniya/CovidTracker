@@ -1,0 +1,6 @@
+<mat-chip-list class="vaccineFiltersHolder" selectable multiple>
+  <mat-chip #c="matChip" *ngFor='let filters of options' [value]='filters' (click)="selectfilters(c)">
+   <mat-icon *ngIf="c.selected">check</mat-icon>
+    {{filters}}
+  </mat-chip>
+ </mat-chip-list>

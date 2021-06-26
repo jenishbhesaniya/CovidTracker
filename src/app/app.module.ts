@@ -37,6 +37,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DetailComponent } from './detail/detail.component';
 import {MatChipsModule} from '@angular/material/chips';
+import { ChipsMultiSelectComponent } from './detail/chips-multi-select/chips-multi-select.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import {MatChipsModule} from '@angular/material/chips';
     StatesComponent,
     SymptomsComponent,
     DetailComponent,
+    ChipsMultiSelectComponent,
 
   ],
   imports: [

@@ -44,7 +44,7 @@
   box-sizing: border-box;
 
 }
-.vaccineFilter{
+/* .vaccineFilter{
   border: 1px solid #ddd;
   margin: 5px;
 
@@ -61,10 +61,11 @@
 }
 .vaccineFilter:focus{
   background-color:#00a67e;
-}
+} */
 .page{
   margin-top: 1rem;
   display: flex;
   justify-content: center;
 }
+
 
