@@ -5,43 +5,45 @@
 
 
 
-<app-chips-multi-select [options]="option" [formControl]="chipsControl" >
-</app-chips-multi-select>
+<div class="container" style="overflow-x: scroll;">
+  <app-chips-multi-select [options]="option" [formControl]="chipsControl" >
+  </app-chips-multi-select>
+</div>
 
-  <mat-list role="mat-list" >
+  <mat-list role="mat-list" style="margin-top: 20px;" >
 
     <mat-list-item role="listitem" *ngFor="let card of data1.center | paginate:
     { itemsPerPage: 10, currentPage: p }">
       <div class="container-fluid" >
         <div class="row">
       <mat-card style="background-color: whitesmoke; width:100%;">
-        <mat-card-header style="display: flex;" aria-label="Center">
+        <mat-card-header  aria-label="Center">
           <img mat-grid-avatar src="">
-          <div class="col-md-6">
-          <mat-card-title style="font-size:medium;">{{card.name}}</mat-card-title>
-          <mat-card-subtitle style="font-size:smaller;">{{card.address}}</mat-card-subtitle>
-        </div>
-        <div class="col-md-6-left" >
-          <div class="age text-center" style="background-color: green;" *ngIf="card.available_capacity!=0;else booked"> {{card.available_capacity}}</div>
-          <ng-template  #booked><div class="age text-center" style="background-color: red;">Booked</div></ng-template>
-          <div class="age text-center" style="margin-top: 2px;background-color: transparent;">{{card.fee_type}}</div>
 
-      </div>
+          <mat-card-title style="font-size:medium;font-family: Arial, Helvetica, sans-serif;">{{card.name}}</mat-card-title>
+          <mat-card-subtitle style="font-size:smaller;">{{card.address}}</mat-card-subtitle>
+
+        <div style="float: right;margin-left: auto;">
+          <div class="age text-center" style="background-color: green;padding: 7%;color:whitesmoke;" *ngIf="card.available_capacity!=0;else booked"> {{card.available_capacity}}</div>
+          <ng-template  #booked><div class="age text-center" style="background-color:#de1738;color: white;padding: 5px;align-items: center;">Booked</div></ng-template>
+          <div class="age text-center" style="margin-top: 2px;background-color: transparent;">{{card.fee_type }}</div>
+
+        </div>
         </mat-card-header>
         <mat-card-actions>
           <div class="row">
             <div class="age">Age: {{card.min_age_limit}}+</div>
 
-            <button mat-stroked-button  matTooltip={{card.slots}} [matTooltipPosition]="'above'" >Slots time</button>
+            <button mat-stroked-button  matTooltip={{card.slots}} [matTooltipPosition]="'above'" style="border-color: #fdbc00;">Slots time</button>
 
-            <div style="margin-left: 2%;margin-top: auto;"> Dose 1: </div>
+            <div style="margin-left: 2%;margin-top: auto;font-weight: 600;margin-bottom: 9px;"> Dose 1: </div>
             <div *ngIf="card.available_capacity_dose1!=0;else close" class="box text-center" style="margin-top: auto;">{{card.available_capacity_dose1}}</div>
-            <div style="margin-left: 2%;margin-top: auto;"> Dose 2: </div>
+            <div style="margin-left: 2%;margin-top: auto;font-weight: 600;margin-bottom: 9px;margin-left: 10px;"> Dose 2: </div>
             <div *ngIf="card.available_capacity_dose2!=0;else close" class="box text-center">{{card.available_capacity_dose2}}</div>
             <ng-template  #close>
-              <mat-icon [ngStyle]="{'color':'red'}" style="margin-top: auto;">close</mat-icon>
+              <mat-icon [ngStyle]="{'color':'red'}" style="margin-top: auto;margin-bottom: 7px;">close</mat-icon>
             </ng-template>
-            <div class="box text-center">{{card.vaccine}}</div>
+            <div class="age text-center" style="color: #de1738;">{{card.vaccine}}</div>
         </div>
 
 

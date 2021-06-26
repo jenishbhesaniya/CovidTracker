@@ -11,7 +11,6 @@
   align-items: center;
   display: flex;
   margin-bottom: 10%;
-  width: fit-content;
 }
 
 @media (max-width:618px){
@@ -48,8 +47,9 @@ mat-list-option[aria-selected="true"] {
   color: #fff;
 }
 virtual-scroller {
-  width: 600px;
+  width: 100%;
   height:auto;
+  overflow:auto ;
 
 }
 .s{

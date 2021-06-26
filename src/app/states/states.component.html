@@ -38,7 +38,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
         </form>
           <app-detail>
             <ng-container dates>
-              <mat-selection-list [multiple]="false" >
+              <mat-selection-list [multiple]="false" style="margin-bottom: 20px;">
                 <div class="option">
                 <div class="scroll">
                   <button class="s" (click)="scrollLeft()"><mat-icon>keyboard_arrow_left</mat-icon></button>
@@ -58,7 +58,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
           </div>
         </mat-tab>
         <mat-tab label="States">
-          <div class="pin" style="justify-content: space-between;">
+          <div class="pin" style="justify-content: space-between;" >
             <form class="States" [formGroup]="stNdDst">
               <mat-form-field class="formfield">
                 <mat-label>State</mat-label>
