@@ -16,6 +16,7 @@ import { map } from 'rxjs/operators';
     },
   ],
 })
+
 export class ChipsMultiSelectComponent implements OnInit, ControlValueAccessor, AfterViewInit  {
   @Input() options: string[] = [];
   onChange!: (value: string[]) => void;

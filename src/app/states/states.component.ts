@@ -133,6 +133,7 @@ getdata(date:Date,a?:number){
   this.dist_id = a;
   this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id='+this.dist_id+'&date='+d).subscribe((data: any)=>{
     this.token.center=data['sessions'];
+    this.token.temp=data['sessions'];
     this.token.table=true;
      this.listlength=data['sessions'].length;
      this.showProgress = false;
@@ -148,6 +149,7 @@ getpin(date:Date){
   console.log(d,pin);
   this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode='+pin+'&date='+d).subscribe(data=>{
   this.token.center=data['sessions'];
+  this.token.temp=data['sessions'];
   this.token.table=true;
   this.listlength=data['sessions'].length;
   this.showProgress = false

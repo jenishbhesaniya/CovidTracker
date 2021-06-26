@@ -17,6 +17,7 @@ export interface Center{
 export class ShareddataService {
   table:boolean=false;
   center:Center[]=[];
+  temp:Center[]=[];
   private token!:string
   constructor() { }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Center, ShareddataService } from '../shared/shareddata.service';
+import {  ShareddataService } from '../shared/shareddata.service';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 @UntilDestroy()
 @Component({
@@ -21,12 +21,35 @@ export class DetailComponent implements OnInit  {
 
 
   ngOnInit(): void {
+
+
     this.chipsControl.valueChanges.pipe(untilDestroyed(this)).subscribe(data=>
       {
-        const temp:Center[]=this.data1.center;
+        this.data1.center=this.data1.temp;
+          if(data.length>0){
+            for(let i =0;i<data.length;i++){
 
-          this.data1.center= this.data1.center.filter(center=>center.min_age_limit===18);
-        console.log(data);
+              switch(data[i]){
+                case 'Age 18+':this.data1.center= this.data1.center.filter(center=>center.min_age_limit===18);break;
+                case 'Age 45+':this.data1.center= this.data1.center.filter(center=>center.min_age_limit===45);break;
+                case 'Free':this.data1.center= this.data1.center.filter(center=>center.fee_type==='Free');break;
+                case 'Paid':this.data1.center= this.data1.center.filter(center=>center.fee_type==='Paid');break;
+                case 'Dose 1':this.data1.center= this.data1.center.filter(center=>center.available_capacity_dose1>0);break;
+                case 'Dose 2':this.data1.center= this.data1.center.filter(center=>center.available_capacity_dose2>0);break;
+                case 'Covishield':this.data1.center= this.data1.center.filter(center=>center.vaccine==='COVISHIELD');break;
+                case 'Covaxin':this.data1.center= this.data1.center.filter(center=>center.vaccine==='COVAXIN');break;
+
+                default: break;
+
+              }
+              console.log(data[i]);
+            }
+
+          }
+          else{
+            this.data1.center=this.data1.temp;
+          }
+
       })
 
   }
