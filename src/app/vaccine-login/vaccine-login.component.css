@@ -20,4 +20,6 @@ footer{
    left: 0;
 }
 
-
+::placeholder{
+  color: white;
+}
