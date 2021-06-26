@@ -21,7 +21,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
 </div>
 <br>
 <img src="https://www.cowin.gov.in/assets/images/largest-vaccine-banner.jpg" class="img-fluid" style="width: 100%;">
-<div class="main-div" >
+<div class="main-div">
   <mat-card layout="row" style="border-radius: 15px; ">
     <mat-card-subtitle style="color: whitesmoke;"><span>Search Vaccine Centres</span> </mat-card-subtitle>
     <mat-card-content>
@@ -41,7 +41,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
               <mat-selection-list [multiple]="false" >
                 <div class="option">
                 <div class="scroll">
-                  <button (click)="scrollLeft()"><mat-icon>keyboard_arrow_left</mat-icon></button>
+                  <button class="s" (click)="scrollLeft()"><mat-icon>keyboard_arrow_left</mat-icon></button>
                 </div>
                 <virtual-scroller  #options [horizontal]="true"  >
 
@@ -49,7 +49,7 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
                 {{d |date}}</mat-chip>
                </virtual-scroller>
               <div class="scroll">
-                <button (click)="scrollRight()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+                <button class="s" (click)="scrollRight()"><mat-icon>keyboard_arrow_right</mat-icon></button>
               </div>
             </div>
               </mat-selection-list>
@@ -96,13 +96,13 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
               <mat-selection-list [multiple]="false">
                 <div class="option" >
                   <div style="float: left;display: flex;" >
-                    <button (click)="scrollLeft()"><mat-icon>keyboard_arrow_left</mat-icon></button>
+                    <button class="s" (click)="scrollLeft()"><mat-icon>keyboard_arrow_left</mat-icon></button>
                 </div>
                 <mat-list-option #options *ngFor="let d of date" [value]="d" (click)="getdata(d,dist_id)">
                  {{d | date}}
                 </mat-list-option>
                 <div style="float: right;display: flex;justify-content: center;">
-                  <button (click)="scrollRight()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+                  <button class="s" (click)="scrollRight()"><mat-icon>keyboard_arrow_right</mat-icon></button>
               </div>
               </div>
               </mat-selection-list>

@@ -8,9 +8,21 @@
 .main-div{
   margin-top: 5%;
   justify-content: center;
+  align-items: center;
+  display: flex;
   margin-bottom: 10%;
   width: fit-content;
 }
+
+@media (max-width:618px){
+  .main-div{
+    margin-top: 5%;
+    justify-content: center;
+    display: block;
+    margin-bottom: 10%;
+  }
+}
+
 .tab{
   justify-content: space-between;background-color: whitesmoke;padding: 8px;color: black;
 }
@@ -20,6 +32,8 @@ mat-card{
 /* mat-tab-group{
   background-color:#9ca9aa;
 } */
+
+
 .option{
   display: flex;
  width: 100%;
@@ -37,4 +51,12 @@ virtual-scroller {
   width: 600px;
   height:auto;
 
+}
+.s{
+  border-radius: 50%;color: rgba(0,32,59,23);border: 0px;background-color: transparent;
+  text-align: center;
+}
+
+.s:hover{
+  background-color: rgba(1,1,1,0.1);
 }
