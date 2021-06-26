@@ -7,94 +7,112 @@ data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
         [colspan]="tile.cols"
         [rowspan]="tile.rows"
         [style.background]="tile.color" >
-        <a href="tel:911123978046" style="color: whitesmoke;" class="number" *ngIf=" tile.text == '91 11 23 978046' "><mat-icon aria-hidden="false" style="font-size: 30px;  background:rgba(0, 32, 59, 23) ;
+        <a href="tel:911123978046" style="color: whitesmoke;" class="number" *ngIf=" tile.text == '91 11 23 978046' ">
+          <mat-icon aria-hidden="false" style="font-size: 30px;  background:rgba(0, 32, 59, 23) ;
 ">call</mat-icon><span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
-        <a href="tel:1075" class="number" style="color: whitesmoke;" *ngIf=" tile.text == '1075' "><mat-icon style="font-size: 30px;" aria-hidden="false">person</mat-icon><span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
-      <div *ngIf=" tile.text != '91 11 23 978046' && tile.text != '1075'  " style="color:rgba(0, 32, 59, 23);font-weight: 500;font-size: 30px;">{{tile.text}}</div>
+        <a href="tel:1075" class="number" style="color: whitesmoke;" *ngIf=" tile.text == '1075' ">
+          <mat-icon style="font-size: 30px;" aria-hidden="false">person</mat-icon>
+          <span>&nbsp; &nbsp;	</span>{{ tile.text }}</a>
+      <div *ngIf=" tile.text != '91 11 23 978046' && tile.text != '1075'" style="color:rgba(0, 32, 59, 23);font-weight: 500;font-size: 30px;">
+        {{tile.text}}
+      </div>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
 <br>
 <img src="https://www.cowin.gov.in/assets/images/largest-vaccine-banner.jpg" class="img-fluid" style="width: 100%;">
-<div class="main-div" style="position: relative;">
-  <div class="container">
-    <mat-card layout="row" layout-align="center center" style="border-radius: 15px;">
-      <mat-card-subtitle style="color: whitesmoke;">Serch Vaccine Centres</mat-card-subtitle>
-      <mat-card-content>
-        <mat-tab-group [color]="'primary'"   style="justify-content: space-between;" style="background-color: whitesmoke;padding: 8px;color: black;">
-          <mat-tab label="Search by pin" >
-            <div class="pin" style="justify-content: space-between;">
-              <form class="container" [formGroup]="formpin" (ngSubmit)="formpin.valid && getpin()">
-              <mat-form-field class="formfield" >
-              <mat-label>Postal Code</mat-label>
-              <input matInput #postalCode maxlength="6" placeholder="Ex. 941056" [formControlName]="'code'">
-              <mat-error *ngIf="formpin.controls.code.invalid && formpin.controls.code.touched">Please Enter valid Pincode</mat-error>
-            </mat-form-field>
-            <!-- <button mat-raised-button style="margin-left: 2%;background-color:rgba(0, 32, 59, 23);color: whitesmoke;">Search</button> -->
-          </form>
-            <app-detail>
-              <div class="container">
-                <mat-selection-list [multiple]="false">
-                  <div class="option" >
-                  <mat-list-option *ngFor="let d of date" [value]="d">
-                   {{d | date}}
-                  </mat-list-option>
+<div class="main-div" >
+  <mat-card layout="row" layout-align="center center" style="border-radius: 15px; ">
+    <mat-card-subtitle style="color: whitesmoke;">Serch Vaccine Centres</mat-card-subtitle>
+    <mat-card-content>
+      <mat-tab-group [color]="'primary'"   class="tab" (selectedTabChange)="changetab()">
+        <mat-tab label="Search by pin" >
+          <div class="pin" style="justify-content: space-between;">
+            <form class="container" [formGroup]="formpin" (ngSubmit)="formpin.valid && getpin(today)">
+            <mat-form-field class="formfield" >
+            <mat-label>Postal Code</mat-label>
+            <input matInput #postalCode maxlength="6" placeholder="Ex. 941056" [formControlName]="'code'">
+            <mat-error *ngIf="formpin.controls.code.invalid && formpin.controls.code.touched">Please Enter valid Pincode</mat-error>
+          </mat-form-field>
+          <!-- <button mat-raised-button style="margin-left: 2%;background-color:rgba(0, 32, 59, 23);color: whitesmoke;">Search</button> -->
+        </form>
+          <app-detail>
+            <ng-container dates>
+              <mat-selection-list [multiple]="false" >
+                <div class="option" >
+                  <div style="float: left;display: flex;" >
+                    <button (click)="scrollLeft()"><mat-icon>keyboard_arrow_left</mat-icon></button>
                 </div>
-                </mat-selection-list>
+                <mat-list-option *ngFor="let d of date" [value]="d" (click)="getpin(d)">
+                 {{d | date}}
+                </mat-list-option>
+                <div style="float:right;display: ruby;justify-content: center;">
+                  <button (click)="scrollRight()"><mat-icon>keyboard_arrow_right</mat-icon></button>
               </div>
-            </app-detail>
-            </div>
-          </mat-tab>
-          <mat-tab label="States">
-            <div class="pin" style="justify-content: space-between;">
-              <form class="States" [formGroup]="stNdDst">
-                <mat-form-field class="formfield">
-                  <mat-label>State</mat-label>
-                  <input matInput
-                         aria-label="State"
-                         [matAutocomplete]="auto"
-                         [formControl]="stateCtrl" [(ngModel)]="stName"  >
-                  <mat-autocomplete #auto="matAutocomplete" >
+              </div>
+              </mat-selection-list>
+            </ng-container>
+          </app-detail>
+          </div>
+        </mat-tab>
+        <mat-tab label="States">
+          <div class="pin" style="justify-content: space-between;">
+            <form class="States" [formGroup]="stNdDst">
+              <mat-form-field class="formfield">
+                <mat-label>State</mat-label>
+                <input matInput
+                       aria-label="State"
+                       [matAutocomplete]="auto"
+                       [formControl]="stateCtrl" [(ngModel)]="stName"  >
+                <mat-autocomplete #auto="matAutocomplete" >
 
                     <mat-option *ngFor="let state of filteredStates | async" [value]="state.state_name" (onSelectionChange)="getdistrict(state.state_id)">
 
-                      <span>{{state.state_name}}</span>
-                    </mat-option>
-                  </mat-autocomplete>
-                </mat-form-field>
-                <br>
-                <mat-form-field class="formfield">
-                  <mat-label>District</mat-label>
-                  <input matInput
-                         aria-label="District"
-                         [matAutocomplete]="auto1"
-                         [formControl]="disCtrl" [readonly]="dstSelect">
-                  <mat-autocomplete #auto1=matAutocomplete>
-                    <mat-option *ngFor="let district of filteredDistrict | async" [value]="district.district_name" (onSelectionChange)="getdata(district.district_id)">
+                    <span>{{state.state_name}}</span>
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="formfield">
+                <mat-label>District</mat-label>
+                <input matInput
+                       aria-label="District"
+                       [matAutocomplete]="auto1"
+                       [formControl]="disCtrl" [readonly]="dstSelect">
+                <mat-autocomplete #auto1=matAutocomplete>
+                  <mat-option *ngFor="let district of filteredDistrict | async" [value]="district.district_name" (onSelectionChange)="getdata(today,district.district_id)">
 
-                      <span>{{district.district_name}}</span>
-                    </mat-option>
-                  </mat-autocomplete>
-                </mat-form-field>
-              </form>
-            <!-- <button mat-raised-button  style="margin-left: 2%;background-color:rgba(0, 32, 59, 23);color: whitesmoke;" >Search</button> -->
-            </div>
-            <app-detail>
-              <div class="container">
-                <mat-selection-list [multiple]="false">
-                  <div class="option" >
-                  <mat-list-option *ngFor="let d of date" [value]="d">
-                   {{d | date}}
-                  </mat-list-option>
+                    <span>{{district.district_name}}</span>
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
+          <!-- <button mat-raised-button  style="margin-left: 2%;background-color:rgba(0, 32, 59, 23);color: whitesmoke;" >Search</button> -->
+          </div>
+          <app-detail>
+            <ng-container dates>
+              <mat-selection-list [multiple]="false">
+                <div class="option" >
+                  <div style="float: left;display: flex;" >
+                    <button (click)="scrollLeft()"><mat-icon>keyboard_arrow_left</mat-icon></button>
                 </div>
-                </mat-selection-list>
+                <mat-list-option #options *ngFor="let d of date" [value]="d" (click)="getdata(d,dist_id)">
+                 {{d | date}}
+                </mat-list-option>
+                <div style="float: right;display: flex;justify-content: center;">
+                  <button (click)="scrollRight()"><mat-icon>keyboard_arrow_right</mat-icon></button>
               </div>
-            </app-detail>
-          </mat-tab>
-        </mat-tab-group>
-      </mat-card-content>
-    </mat-card>
-  </div>
+              </div>
+              </mat-selection-list>
+
+
+            </ng-container>
+
+          </app-detail>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
   <!-- <div class="img" style="position:absolute;border-radius: 50px;margin-top: -60px;margin-left: 300px">
     <img class="img-responsive" src="https://media.istockphoto.com/vectors/doctor-in-protective-suit-inject-vaccine-shot-to-patient-minimize-vector-id1221259525?k=6&m=1221259525&s=612x612&w=0&h=TV_DgVj1DHXAtYtFTgta4ihMHkEIefkUTVghgVOLd-o=" style="width: 100px;height: 100px;border-radius: 50%;">
   </div> -->

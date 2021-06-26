@@ -1,21 +1,22 @@
 <ng-container  *ngIf="data1.table" >
 
-<ng-content></ng-content>
+<ng-content select="[dates]"></ng-content>
 
 
+
+
+  <mat-chip-list class="vaccineFiltersHolder">
+    <mat-chip class="vaccineFilter" >Age 18-44</mat-chip>
+    <mat-chip class="vaccineFilter" >Age 45+</mat-chip>
+    <mat-chip class="vaccineFilter" >Dose 1</mat-chip>
+    <mat-chip class="vaccineFilter" >Dose 2 </mat-chip>
+    <mat-chip class="vaccineFilter" >Free</mat-chip>
+    <mat-chip class="vaccineFilter" >Paid</mat-chip>
+    <mat-chip class="vaccineFilter" >Covishield</mat-chip>
+    <mat-chip class="vaccineFilter" >Covaxin</mat-chip>
+    <mat-chip class="vaccineFilter" >Sputnik V</mat-chip>
+  </mat-chip-list>
   <mat-list role="mat-list" >
-  <div class="vaccineFiltersHolder">
-    <button class="vaccineFilter" mat-button><span>Age 18-44</span></button>
-    <button class="vaccineFilter" mat-button>Age 45+</button>
-    <button class="vaccineFilter" mat-button>Dose 1</button>
-    <button class="vaccineFilter" mat-button>Dose 2 </button>
-    <button class="vaccineFilter" mat-button>Free</button>
-    <button class="vaccineFilter" mat-button>Paid</button>
-    <button class="vaccineFilter" mat-button>Covishield</button>
-    <button class="vaccineFilter" mat-button>Covaxin</button>
-    <button class="vaccineFilter" mat-button>Sputnik V</button>
-  </div>
-
 
     <mat-list-item role="listitem" *ngFor="let card of data1.center | paginate:
     { itemsPerPage: 10, currentPage: p }">

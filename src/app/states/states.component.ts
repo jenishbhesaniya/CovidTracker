@@ -1,5 +1,5 @@
 import { HttpHeaders,HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map, startWith} from 'rxjs/operators';
@@ -38,10 +38,13 @@ export class StatesComponent implements OnInit {
   stNdDst!:FormGroup;
   tiken!:string;
   showProgress = false
-
+  today:Date=new Date;
+  dist_id?:number
   dstSelect = true;
+  posdate:Date=new Date();
   filteredStates!: Observable<State[]>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild('options', { read: ElementRef }) public options!: ElementRef<any>;
   filteredDistrict!: Observable<District[]>;
   states: State[] = [{
     'state_id':1,
@@ -124,13 +127,12 @@ export class StatesComponent implements OnInit {
 
 
   }
-getdata(a:number){
+getdata(date:Date,a?:number){
   this.showProgress = true
-  let d= formatDate(new Date(),'dd/MM/yyy', 'en-in');
-  console.log(d)
-  this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id='+a+'&date='+d).subscribe((data: any)=>{
+  let d= formatDate(date,'dd/MM/yyy', 'en-in');
+  this.dist_id = a;
+  this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id='+this.dist_id+'&date='+d).subscribe((data: any)=>{
     this.token.center=data['sessions'];
-    console.log(this.token.center);
     this.token.table=true;
      this.listlength=data['sessions'].length;
      this.showProgress = false;
@@ -138,15 +140,11 @@ getdata(a:number){
 
 
 }
-getpin(){
+getpin(date:Date){
   this.showProgress = true;
 
-  let d= formatDate(new Date(),'dd/MM/yyy', 'en-in');
+  let d= formatDate(date,'dd/MM/yyy', 'en-in');
   let pin = this.formpin.get('code')?.value;
-  setInterval(()=>{
-
-  },10)
-  clearInterval()
   console.log(d,pin);
   this.http.get<any>('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode='+pin+'&date='+d).subscribe(data=>{
   this.token.center=data['sessions'];
@@ -157,12 +155,24 @@ getpin(){
   })
 }
 getDate(){
-  console.log("getting date")
-  let b = new Date();
-  for(let i =0;i<7;i++){
+  console.log("getting date");
+  let b = new Date(this.posdate);
+  for(let i =0;i<5;i++){
     b.setDate(b.getDate()+1);
     this.date.push(new Date(b));
   }
+  this.posdate=b;
+}
+changetab(){
+  this.token.table=false;
+}
+public scrollRight(): void {
+  this.options.nativeElement.scrollTo({ left: (this.options.nativeElement.scrollLeft + 150), behavior: 'smooth' });
+  this.getDate();
+}
+
+public scrollLeft(): void {
+  this.options.nativeElement.scrollTo({ left: (this.options.nativeElement.scrollLeft - 150), behavior: 'smooth' });
 }
 
 }
