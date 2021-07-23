@@ -36,6 +36,7 @@ export class AlldataComponent implements OnInit{
       this.data.active = data.Global.TotalConfirmed-(data.Global.TotalRecovered+data.Global.TotalDeaths).toString(),
       this.data.date = data.Global.Date
       console.log(this.data);
+      
     });
   }
 
